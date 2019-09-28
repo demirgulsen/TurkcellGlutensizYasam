@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="50dp"
+    tools:context=".LoginActivity">
+
+    <!-- TextView: label login-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="Giriş"
+        android:textColor="@color/colorAccent"
+        android:layout_marginTop="30dp"
+        android:textStyle="bold"
+        android:textSize="30dp"/>
+
+    <!--EditText: Input Email-->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailTIL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+        <EditText
+            android:id="@+id/emailEt"
+            android:inputType="textEmailAddress"
+            android:hint="Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--EditText: Input Password -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordTIL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_below="@+id/emailTIL">
+
+        <EditText
+            android:id="@+id/passwordEt"
+
+            android:inputType="textPassword"
+            android:hint="Şifre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/passwordTIL"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp"
+        style="@style/Widget.AppCompat.Button.Colored"
+
+        android:text="Giriş" />
+
+    <TextView
+        android:id="@+id/recoverPass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Şifrenizi mi unuttunuz? Şifrenizi Sıfırlayın"
+        android:layout_below="@+id/login_btn"
+        android:textColor="@color/colorBlack"/>
+
+
+    <TextView
+        android:id="@+id/nothave_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:text="Bir hesabınız yok mu? Kayıt ol"
+        android:textAlignment="center"
+        android:textColor="@color/colorBlack" />
+
+</LinearLayout>

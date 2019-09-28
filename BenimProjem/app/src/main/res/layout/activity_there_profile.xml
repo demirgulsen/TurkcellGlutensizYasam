@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#B4F0B6"
+    tools:context=".ThereProfileActivity">
+    <!-- TODO: Update blank fragment layout -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!--    Cover Photo     -->
+        <ImageView
+                android:id="@+id/coverP"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+                android:scaleType="fitXY"
+                android:background="#009688">
+
+            </ImageView>
+
+        <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="120dp">
+                <ImageView
+                    android:id="@+id/avatarP"
+                    android:layout_marginStart="20dp"
+                    android:background="#09C97C"
+                    android:padding="5dp"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_marginLeft="20dp"
+                    android:src="@drawable/ic_add_image"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:background="#03A092">
+
+                    <TextView
+                        android:id="@+id/nameP"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+
+                        android:textColor="@color/colorWhite"
+                        android:layout_marginTop="5dp"
+                        android:textSize="25sp"/>
+
+                    <TextView
+                        android:id="@+id/emailP"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+
+                        android:textColor="@color/colorWhite" />
+
+                    <TextView
+                        android:id="@+id/phoneP"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginLeft="5dp"
+
+                        android:textColor="@color/colorWhite"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_posts"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/linearLayout"/>
+
+    </RelativeLayout>
+
+</ScrollView>
