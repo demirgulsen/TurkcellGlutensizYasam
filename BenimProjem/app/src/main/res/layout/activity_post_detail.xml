@@ -64,11 +64,19 @@
                         </LinearLayout>
 
                         <ImageButton
+                            android:id="@+id/action_saved"
+                            android:layout_width="56dp"
+                            android:layout_height="38dp"
+                            android:src="@drawable/ic_saved_black"
+                            android:background="@null"
+                            />
+
+                        <ImageButton
                             android:id="@+id/moreBtn"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:background="@null"
-                            android:src="@drawable/ic_more"/>
+                            android:src="@drawable/ic_more" />
 
                     </LinearLayout>
 

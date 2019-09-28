@@ -55,6 +55,7 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
     String myUid;
 
     private DatabaseReference likesRef;
+    private DatabaseReference savedRef;
     private DatabaseReference postsRef;
 
     boolean mProcessLike= false;
@@ -64,6 +65,7 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         this.postList = postList;
         myUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         likesRef = FirebaseDatabase.getInstance().getReference().child("Likes");
+        savedRef = FirebaseDatabase.getInstance().getReference().child("Saved");
         postsRef = FirebaseDatabase.getInstance().getReference().child("Posts");
     }
 
@@ -133,6 +135,7 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
             }
         });
 
+
         holder.likeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -159,8 +162,14 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
                   public void onCancelled(@NonNull DatabaseError databaseError) {
                   }
               });
+
+
             }
         });
+
+
+
+
 
         holder.commentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -217,6 +226,16 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         });
 
     }
+
+
+
+
+
+
+
+
+
+
 
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)

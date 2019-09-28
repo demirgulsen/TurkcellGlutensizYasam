@@ -99,7 +99,10 @@
                 android:layout_height="wrap_content"
                 android:gravity="end" />
 
-        </LinearLayout>        <View
+        </LinearLayout>
+<!--        burası kontrol edilecek-->
+        <View
+
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="#E99E38"/>
@@ -110,37 +113,49 @@
             android:gravity="center">
             <Button
                 android:id="@+id/likeBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Beğen"
-                android:drawablePadding="5dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="0.1"
                 android:textColor="@color/colorBlack"
                 android:drawableLeft="@drawable/ic_like"
                 android:background="#FFC400"
                 android:drawableStart="@drawable/ic_like"/>
             <Button
                 android:id="@+id/commentBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Yorum"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="0.1"
                 android:textColor="@color/colorBlack"
-                android:drawablePadding="5dp"
                 android:drawableLeft="@drawable/ic_comment"
                 android:background="#FFC400"
-                android:drawableStart="@drawable/ic_comment"/>
+                android:drawableStart="@drawable/ic_comment"
+                android:layout_toEndOf="@id/likeBtn"
+                android:layout_toRightOf="@id/likeBtn" />
+
             <Button
                 android:id="@+id/shareBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_weight="1"
-                android:text="Paylaş"
-                android:drawablePadding="5dp"
+
                 android:textColor="@color/colorBlack"
                 android:drawableLeft="@drawable/ic_share"
                 android:background="#FFC400"
                 android:drawableStart="@drawable/ic_share"/>
+
+            <Button
+                android:id="@+id/saveBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_alignParrentEnd="true"
+                android:drawableLeft="@drawable/ic_save"
+                android:layout_weight="0.01"
+                android:background="#FFC400"
+                android:drawableStart="@drawable/ic_save"/>
+
+
+
+
 
         </LinearLayout>
 
