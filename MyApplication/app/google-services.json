@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "939948635229",
+    "firebase_url": "https://benimprojem-52580.firebaseio.com",
+    "project_id": "benimprojem-52580",
+    "storage_bucket": "benimprojem-52580.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:939948635229:android:1f852540d0328d43b0c9b4",
+        "android_client_info": {
+          "package_name": "com.example.benimprojem"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "939948635229-tvn06ac2tvpqhfcijlck4sinub4ed7qr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.benimprojem",
+            "certificate_hash": "e081eec297bb74e694be4ef0e2328ab81420fc58"
+          }
+        },
+        {
+          "client_id": "939948635229-ch6vjjq74elhtmlrtnl4go29i8vd34dq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATVucuzGydgqJNP1f1jvC_EztU4l19FMM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "939948635229-ch6vjjq74elhtmlrtnl4go29i8vd34dq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
