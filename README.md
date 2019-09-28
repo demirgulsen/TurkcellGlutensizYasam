@@ -1,0 +1,2 @@
+# TurkcellGlutensizYasam
+ Turkcell GYK Projesi
