@@ -4,24 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F1B7D4"
+    android:background="#ffff"
     tools:context=".ChatActivity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:background="#C72C7A"
+        android:background="#81aba8"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
 
         <com.blogspot.atifsoftwares.circularimageview.CircularImageView
-            android:id="@+id/profilP"
+            android:id="@+id/profileIv"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:scaleType="centerCrop"
             android:src="@drawable/ic_default_chat"
-            app:c_background_color="#CA2065"/>
+            app:c_background_color="#b1ddd9"/>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,7 +33,7 @@
 
             <!-- Receiver name-->
             <TextView
-                android:id="@+id/nameP"
+                android:id="@+id/nameTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Adı "
@@ -43,7 +43,7 @@
 
             <!-- Receiver status i.e. online or offline-->
             <TextView
-                android:id="@+id/userStatusP"
+                android:id="@+id/userStatusTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Online"

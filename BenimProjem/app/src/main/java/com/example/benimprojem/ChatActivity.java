@@ -57,8 +57,8 @@ public class ChatActivity extends AppCompatActivity {
     //view from xml
     Toolbar toolbar;
     RecyclerView recyclerView;
-    ImageView profilP;
-    TextView nameP, userStatusP;
+    ImageView profilTv;
+    TextView nameTv, userStatusTv;
     EditText messageEt;
     ImageButton sendBtn;
 
@@ -93,9 +93,9 @@ public class ChatActivity extends AppCompatActivity {
         toolbar.setTitle("");
 
         recyclerView = findViewById(R.id.chat_recyclerView);
-        profilP = findViewById(R.id.profilP);
-        nameP = findViewById(R.id.nameP);
-        userStatusP = findViewById(R.id.userStatusP);
+        profilTv = findViewById(R.id.profileIv);
+        nameTv = findViewById(R.id.nameTv);
+        userStatusTv = findViewById(R.id.userStatusTv);
         messageEt = findViewById(R.id.messageEt);
         sendBtn = findViewById(R.id.sendBtn);
 
@@ -131,30 +131,30 @@ public class ChatActivity extends AppCompatActivity {
 
 
                     if (typingStatus.equals(myUid)){
-                        userStatusP.setText("Yazıyor...");
+                        userStatusTv.setText("Yazıyor...");
                     }
                     else{
                         String onlineStatus= ""+ ds.child("onlineStatus").getValue();
 
                         if (onlineStatus.equals("online")){
-                            userStatusP.setText(onlineStatus);
+                            userStatusTv.setText(onlineStatus);
                         }
                         else{
                             //convert time stamp to dd/mm/yyyy hh:mm am/pm
                             Calendar cal = Calendar.getInstance(Locale.ENGLISH);
                             cal.setTimeInMillis(Long.parseLong(onlineStatus));
                             String dateTime = DateFormat.format("dd/MM/yyyy hh:mm aa", cal).toString();
-                            userStatusP.setText("En son görüldü "+dateTime);
+                            userStatusTv.setText("En son görüldü "+dateTime);
                         }
                     }
 
                     //set data
-                    nameP.setText(name);
+                    nameTv.setText(name);
                     try {
-                        Picasso.get().load(hisImage).placeholder(R.drawable.ic_default_chat).into(profilP);
+                        Picasso.get().load(hisImage).placeholder(R.drawable.ic_default_chat).into(profilTv);
                     }
                     catch (Exception e){
-                        Picasso.get().load(R.drawable.ic_default_chat).into(profilP);
+                        Picasso.get().load(R.drawable.ic_default_chat).into(profilTv);
                     }
                 }
             }

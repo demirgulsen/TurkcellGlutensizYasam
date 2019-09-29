@@ -25,7 +25,7 @@
             android:id="@+id/timeP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="16/09/2019 22.40"
+            android:text="16/09/2019 22:40"
             android:textColor="@color/colorBlack"
             android:textSize="12sp"/>
 
@@ -35,9 +35,9 @@
             android:layout_weight="1"
             android:textSize="16sp"
             android:textColor="@color/colorBlack"
-            android:background="@drawable/bg_sender"
+            android:background="#b1ddd9"
             android:padding="15dp"
-            android:text="His Message"
+            android:text="yeni mesaj"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
@@ -49,6 +49,7 @@
         android:id="@+id/isSeent"
         android:gravity="end"
         android:textAlignment="textEnd"
+        android:visibility="gone"
         android:text="delivered"/>
 
 </LinearLayout>
