@@ -105,6 +105,7 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         holder.pCommentsTv.setText(pComments + "Comments");
 
         setLikes(holder, pId);
+        isSaved(holder,pId);
 
          final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -166,6 +167,7 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
             }
         });
 
+
         holder.saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -209,7 +211,31 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         });
     }
 
-    private void isSaved(String postid, )
+    private void isSaved(final MyHolder holder, final String postid){
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Saves");
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.child(postid).exists()){
+                    holder.saveBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_saved_black,0,0,0);
+                    holder.likeBtn.setText("Kaydedildi");
+
+                }
+                else{
+                    holder.saveBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_saved_black,0,0,0);
+                    holder.likeBtn.setText("Kaydet");
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
 
     private void setLikes(final MyHolder holder, final String postKey) {
 
