@@ -33,6 +33,7 @@ import com.example.benimprojem.models.ModelPost;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -56,6 +57,7 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
 
     private DatabaseReference likesRef;
     private DatabaseReference postsRef;
+
 
     boolean mProcessLike= false;
 
@@ -103,6 +105,8 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         holder.pCommentsTv.setText(pComments + "Comments");
 
         setLikes(holder, pId);
+
+         final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
         //set user dp
         try{
@@ -162,6 +166,20 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
             }
         });
 
+        holder.saveBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               if (holder.saveBtn.getTag().equals("save")){
+                        FirebaseDatabase.getInstance().getReference().child("Saves").child(firebaseUser.getUid())
+                                .child(String.valueOf(postList.get(position))).setValue(true);   // bu satırdan emin değilim 14. video da 1.47 ye tekrar  bak
+               }
+               else{
+                   FirebaseDatabase.getInstance().getReference().child("Saves").child(firebaseUser.getUid())
+                           .child(String.valueOf(postList.get(position))).removeValue();
+               }
+            }
+        });
+
         holder.commentBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -190,6 +208,8 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
             }
         });
     }
+
+    private void isSaved(String postid, )
 
     private void setLikes(final MyHolder holder, final String postKey) {
 
@@ -344,7 +364,7 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         ImageView uPictureIv, pImageIv;
         TextView uNameTv, pTimeTv, pTitleTv, pDescrTv, pLikesTv, pCommentsTv;
         ImageButton moreBtn;
-        Button likeBtn, commentBtn, shareBtn;
+        Button likeBtn, commentBtn, shareBtn, saveBtn;
         LinearLayout profileLayout;
 
 
@@ -361,6 +381,7 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
             pCommentsTv=itemView.findViewById(R.id.pCommentsTv);
             moreBtn=itemView.findViewById(R.id.moreBtn);
             likeBtn=itemView.findViewById(R.id.likeBtn);
+            saveBtn=itemView.findViewById(R.id.saveBtn);
             commentBtn=itemView.findViewById(R.id.commentBtn);
             shareBtn=itemView.findViewById(R.id.shareBtn);
             profileLayout = itemView.findViewById(R.id.profileLayout);
