@@ -110,37 +110,41 @@
             android:gravity="center">
             <Button
                 android:id="@+id/likeBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Beğen"
-                android:drawablePadding="5dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="0.1"
                 android:textColor="@color/colorBlack"
                 android:drawableLeft="@drawable/ic_like"
                 android:background="#FFC400"
                 android:drawableStart="@drawable/ic_like"/>
             <Button
                 android:id="@+id/commentBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Yorum"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="0.1"
                 android:textColor="@color/colorBlack"
-                android:drawablePadding="5dp"
                 android:drawableLeft="@drawable/ic_comment"
                 android:background="#FFC400"
                 android:drawableStart="@drawable/ic_comment"/>
             <Button
                 android:id="@+id/shareBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Paylaş"
-                android:drawablePadding="5dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_weight="0.1"
                 android:textColor="@color/colorBlack"
                 android:drawableLeft="@drawable/ic_share"
                 android:background="#FFC400"
                 android:drawableStart="@drawable/ic_share"/>
+
+            <Button
+                android:id="@+id/saveBtn"
+                android:layout_width="107dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:background="#FFC400"
+                android:drawableStart="@drawable/ic_saved"
+                android:drawableLeft="@drawable/ic_saved"
+                android:textColor="@color/colorBlack" />
 
         </LinearLayout>
 

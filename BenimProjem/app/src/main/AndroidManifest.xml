@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.benimprojem">
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRİTE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,12 +10,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".PostDetailActivity"></activity>
+        <activity android:name=".Chat2Activity"></activity>
+        <activity android:name=".PostDetailActivity" />
         <activity android:name=".ThereProfileActivity" />
         <activity android:name=".AddPostActivity" />
         <activity
-            android:name=".ChatActivity"
-            android:theme="@style/AppThemeNo" />
+            android:name=".Chat2Activity"
+            android:theme="@style/AppThemeNo"
+            tools:ignore="DuplicateActivity" />
         <activity android:name=".DashboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,5 +46,9 @@
             </intent-filter>
         </service>
     </application>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRİTE_EXTERNAL_STORAGE" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

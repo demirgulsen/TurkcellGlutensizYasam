@@ -116,7 +116,7 @@ public class DashboardActivity extends AppCompatActivity {
                             ft4.replace(R.id.content,fragment4, "");
                             ft4.commit();
                             return true;
-                        case R.id.nav_chat:
+                        case R.id.nav_chat2:
                             //usershome fragment transaction
                             //home fragment transaction
                             actionBar.setTitle("Mesajlar");

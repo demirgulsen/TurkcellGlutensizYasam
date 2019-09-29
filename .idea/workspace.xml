@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-<<<<<<< HEAD
-  <component name="ChangeListManager">
-    <list default="true" id="03c91802-4b64-4d07-a094-011e8902224f" name="Default Changelist" comment="" />
-=======
   <component name="AndroidLayouts">
     <shared>
       <config />
@@ -11,7 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8fa91421-5122-4872-8ac4-d0d8bfe3de8e" name="Default Changelist" comment="" />
->>>>>>> origin/master
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,44 +14,6 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-<<<<<<< HEAD
-  <component name="FUSProjectUsageTrigger">
-    <session id="-1565476311">
-      <usages-collector id="statistics.lifecycle.project">
-        <counts>
-          <entry key="project.closed" value="1" />
-          <entry key="project.open.time.0" value="1" />
-          <entry key="project.opened" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.open">
-        <counts>
-          <entry key="java" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.open">
-        <counts>
-          <entry key="JAVA" value="1" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.extensions.edit">
-        <counts>
-          <entry key="txt" value="34" />
-        </counts>
-      </usages-collector>
-      <usages-collector id="statistics.file.types.edit">
-        <counts>
-          <entry key="PLAIN_TEXT" value="34" />
-        </counts>
-      </usages-collector>
-    </session>
-  </component>
-  <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/BenimProjem/app/src/main/java/com/example/benimprojem/ChatListFragment.java">
-          <provider selected="true" editor-type-id="text-editor" />
-=======
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
@@ -75,7 +32,6 @@
               <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
             </state>
           </provider>
->>>>>>> origin/master
         </entry>
       </file>
     </leaf>
@@ -84,15 +40,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-<<<<<<< HEAD
-    <option name="x" value="370" />
-    <option name="y" value="15" />
-    <option name="width" value="1240" />
-    <option name="height" value="805" />
-  </component>
-  <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-=======
     <option name="x" value="676" />
     <option name="width" value="697" />
     <option name="height" value="702" />
@@ -100,114 +47,10 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
->>>>>>> origin/master
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="Scope" />
-<<<<<<< HEAD
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="TurkcellGlutensizYasam" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TurkcellGlutensizYasam" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TurkcellGlutensizYasam" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TurkcellGlutensizYasam" type="462c0819:PsiDirectoryNode" />
-              <item name="BenimProjem" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TurkcellGlutensizYasam" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TurkcellGlutensizYasam" type="462c0819:PsiDirectoryNode" />
-              <item name="BenimProjem" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TurkcellGlutensizYasam" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TurkcellGlutensizYasam" type="462c0819:PsiDirectoryNode" />
-              <item name="BenimProjem" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TurkcellGlutensizYasam" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TurkcellGlutensizYasam" type="462c0819:PsiDirectoryNode" />
-              <item name="BenimProjem" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TurkcellGlutensizYasam" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TurkcellGlutensizYasam" type="462c0819:PsiDirectoryNode" />
-              <item name="BenimProjem" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TurkcellGlutensizYasam" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TurkcellGlutensizYasam" type="462c0819:PsiDirectoryNode" />
-              <item name="BenimProjem" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TurkcellGlutensizYasam" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TurkcellGlutensizYasam" type="462c0819:PsiDirectoryNode" />
-              <item name="BenimProjem" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TurkcellGlutensizYasam" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TurkcellGlutensizYasam" type="462c0819:PsiDirectoryNode" />
-              <item name="BenimProjem" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TurkcellGlutensizYasam" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TurkcellGlutensizYasam" type="462c0819:PsiDirectoryNode" />
-              <item name="BenimProjem" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="example" type="462c0819:PsiDirectoryNode" />
-              <item name="benimprojem" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TurkcellGlutensizYasam" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TurkcellGlutensizYasam" type="462c0819:PsiDirectoryNode" />
-              <item name="BenimProjem" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="TurkcellGlutensizYasam" type="b2602c69:ProjectViewProjectNode" />
-              <item name="TurkcellGlutensizYasam" type="462c0819:PsiDirectoryNode" />
-              <item name="BenimProjem" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
-            </path>
-=======
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -226,15 +69,10 @@
               <item name="tests" type="f7eae187:NonAndroidSourceTypeNode" />
               <item name="benimprojem" type="462c0819:PsiDirectoryNode" />
             </path>
->>>>>>> origin/master
           </expand>
           <select />
         </subPane>
       </pane>
-<<<<<<< HEAD
-    </panes>
-  </component>
-=======
       <pane id="PackagesPane" />
       <pane id="ProjectPane" />
     </panes>
@@ -244,7 +82,6 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/BenimProjem" />
     <property name="settings.editor.selected.configurable" value="AndroidSdkUpdater" />
   </component>
->>>>>>> origin/master
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -262,45 +99,6 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-<<<<<<< HEAD
-      <changelist id="03c91802-4b64-4d07-a094-011e8902224f" name="Default Changelist" comment="" />
-      <created>1569668807999</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1569668807999</updated>
-    </task>
-    <task id="LOCAL-00001" summary="projeyi açmayı deniyorum.">
-      <created>1569669039392</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1569669039392</updated>
-    </task>
-    <task id="LOCAL-00002" summary="deniyorum">
-      <created>1569669078621</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1569669078621</updated>
-    </task>
-    <option name="localTasksCounter" value="3" />
-    <servers />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <layout>
-      <window_info active="true" content_ui="combo" id="Project" visible="true" weight="0.32980832" />
-      <window_info id="Structure" side_tool="true" />
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info id="Captures" order="0" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="TODO" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" visible="true" weight="0.32907802" />
-=======
       <changelist id="8fa91421-5122-4872-8ac4-d0d8bfe3de8e" name="Default Changelist" comment="" />
       <created>1569668332510</created>
       <option name="number" value="Default" />
@@ -328,25 +126,11 @@
       <window_info anchor="bottom" id="Version Control" />
       <window_info anchor="bottom" id="Android Profiler" show_stripe_button="false" />
       <window_info anchor="right" id="Device File Explorer" side_tool="true" />
->>>>>>> origin/master
       <window_info anchor="right" id="Capture Analysis" />
       <window_info anchor="right" id="Theme Preview" />
       <window_info anchor="right" id="Palette&#9;" />
     </layout>
   </component>
-<<<<<<< HEAD
-  <component name="VcsContentAnnotationSettings">
-    <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="projeyi açmayı deniyorum." />
-    <MESSAGE value="deniyorum" />
-    <option name="LAST_COMMIT_MESSAGE" value="deniyorum" />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/BenimProjem/app/src/main/java/com/example/benimprojem/ChatListFragment.java">
-      <provider selected="true" editor-type-id="text-editor" />
-=======
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/BenimProjem/app/src/main/java/com/example/benimprojem/ChatListFragment.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -361,7 +145,6 @@
           <caret line="22" column="19" selection-start-line="22" selection-start-column="19" selection-end-line="22" selection-end-column="19" />
         </state>
       </provider>
->>>>>>> origin/master
     </entry>
   </component>
 </project>

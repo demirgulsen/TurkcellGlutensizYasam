@@ -14,9 +14,8 @@
         android:title="Kullanıcılar"
         android:icon="@drawable/ic_users_black"/>
 
-    <item android:id="@+id/nav_chat"
+    <item android:id="@+id/nav_chat2"
         android:title="Mesajlar"
-        android:icon="@drawable/ic_chat_black"/>
-
+        android:icon="@drawable/ic_chat_black2"/>
 
 </menu>
