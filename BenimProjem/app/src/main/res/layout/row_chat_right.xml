@@ -35,7 +35,7 @@
             android:layout_weight="1"
             android:textSize="16sp"
             android:textColor="@color/colorBlack"
-            android:background="#b1ddd9"
+            android:background="#a5d6a7"
             android:padding="15dp"
             android:text="yeni mesaj"
             android:layout_width="wrap_content"

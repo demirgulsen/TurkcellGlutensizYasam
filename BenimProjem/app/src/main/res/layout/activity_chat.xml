@@ -11,7 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?android:attr/actionBarSize"
-        android:background="#81aba8"
+        android:background="#75a478"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
 
@@ -78,7 +78,7 @@
         <EditText
             android:id="@+id/messageEt"
             android:layout_weight="1"
-            android:background="@null"
+            android:background="#d7ffd9"
             android:hint="Yazmaya başla"
             android:padding="15dp"
             android:inputType="textCapSentences|textMultiLine"
@@ -88,7 +88,7 @@
         <!--button sen message  -->
         <ImageButton
             android:id="@+id/sendBtn"
-            android:background="@null"
+            android:background="#d7ffd9"
             android:src="@drawable/ic_send_img"
             android:layout_width="40dp"
             android:layout_height="40dp"/>

@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:text="Giriş"
-        android:textColor="@color/colorAccent"
+        android:textColor="#75a478"
         android:layout_marginTop="30dp"
         android:textStyle="bold"
         android:textSize="30dp"/>
@@ -62,6 +62,7 @@
         android:layout_below="@+id/passwordTIL"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="23dp"
+        android:background="#75a478"
         style="@style/Widget.AppCompat.Button.Colored"
 
         android:text="Giriş" />
