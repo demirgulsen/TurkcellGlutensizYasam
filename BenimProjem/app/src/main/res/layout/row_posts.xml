@@ -7,7 +7,7 @@
     app:cardElevation="3dp"
     app:contentPadding="5dp"
     app:cardUseCompatPadding="true"
-    app:cardBackgroundColor="#d7ffd9">
+    app:cardBackgroundColor="#fff">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +26,6 @@
                 android:id="@+id/uPictureIv"
                 android:scaleType="centerCrop"
                 android:src="@drawable/ic_default_img"
-                android:background="#d7ffd9"
                 android:layout_width="50dp"
                 android:layout_height="50dp"/>
             <LinearLayout
@@ -85,7 +84,7 @@
             <TextView
                 android:id="@+id/pLikesTv"
                 android:text="1.2k Beğenme"
-                android:textColor="@color/colorBlack"
+                android:textColor="#AA00FF"
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
@@ -93,22 +92,20 @@
             <TextView
                 android:id="@+id/pCommentsTv"
                 android:text="1.2k Yorum"
-                android:textColor="@color/colorBlack"
+                android:textColor="#AA00FF"
                 android:layout_weight="1"
                 android:textAlignment="textEnd"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="end" />
 
-        </LinearLayout>
-        <View
+        </LinearLayout>        <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#a5d6a7"/>
+            android:background="#E99E38"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#d7ffd9"
             android:orientation="horizontal"
             android:gravity="center">
             <Button
@@ -118,7 +115,7 @@
                 android:layout_weight="0.1"
                 android:textColor="@color/colorBlack"
                 android:drawableLeft="@drawable/ic_like"
-                android:background="#d7ffd9"
+                android:background="#FFC400"
                 android:drawableStart="@drawable/ic_like"/>
             <Button
                 android:id="@+id/commentBtn"
@@ -127,7 +124,7 @@
                 android:layout_weight="0.1"
                 android:textColor="@color/colorBlack"
                 android:drawableLeft="@drawable/ic_comment"
-                android:background="#d7ffd9"
+                android:background="#FFC400"
                 android:drawableStart="@drawable/ic_comment"/>
             <Button
                 android:id="@+id/shareBtn"
@@ -136,7 +133,7 @@
                 android:layout_weight="0.1"
                 android:textColor="@color/colorBlack"
                 android:drawableLeft="@drawable/ic_share"
-                android:background="#d7ffd9"
+                android:background="#FFC400"
                 android:drawableStart="@drawable/ic_share"/>
 
             <Button
@@ -144,7 +141,7 @@
                 android:layout_width="107dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                android:background="#d7ffd9"
+                android:background="#FFf"
                 android:drawableStart="@drawable/ic_saved"
                 android:drawableLeft="@drawable/ic_saved"
                 android:textColor="@color/colorBlack" />
