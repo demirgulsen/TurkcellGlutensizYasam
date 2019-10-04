@@ -16,7 +16,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:id="@+id/profilP"
-
+            android:background="#a5d6a7"
             android:src="@drawable/ic_default_img"/>
 
         <TextView

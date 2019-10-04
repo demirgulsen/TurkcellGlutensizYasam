@@ -66,7 +66,6 @@ public class RegisterActivity extends AppCompatActivity {
                 //email ve şifre girişi
                 String email = mEmailEt.getText().toString().trim();
                 String password = mPasswordEt.getText().toString().trim();
-
                 //onaylandığında
                 if(!Patterns.EMAIL_ADDRESS.matcher(email).matches()){
                     mEmailEt.setError("Geçersiz Email Adresi");
