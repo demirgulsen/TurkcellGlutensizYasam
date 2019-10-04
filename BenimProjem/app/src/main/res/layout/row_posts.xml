@@ -115,7 +115,7 @@
                 android:layout_weight="0.1"
                 android:textColor="@color/colorBlack"
                 android:drawableLeft="@drawable/ic_like"
-                android:background="#FFC400"
+                android:background="#D7FFD9"
                 android:drawableStart="@drawable/ic_like"/>
             <Button
                 android:id="@+id/commentBtn"
@@ -124,7 +124,7 @@
                 android:layout_weight="0.1"
                 android:textColor="@color/colorBlack"
                 android:drawableLeft="@drawable/ic_comment"
-                android:background="#FFC400"
+                android:background="#D7FFD9"
                 android:drawableStart="@drawable/ic_comment"/>
             <Button
                 android:id="@+id/shareBtn"
@@ -133,7 +133,7 @@
                 android:layout_weight="0.1"
                 android:textColor="@color/colorBlack"
                 android:drawableLeft="@drawable/ic_share"
-                android:background="#FFC400"
+                android:background="#D7FFD9"
                 android:drawableStart="@drawable/ic_share"/>
 
             <Button
@@ -141,7 +141,7 @@
                 android:layout_width="107dp"
                 android:layout_height="30dp"
                 android:layout_weight="1"
-                android:background="#FFf"
+                android:background="#D7FFD9"
                 android:drawableStart="@drawable/ic_saved"
                 android:drawableLeft="@drawable/ic_saved"
                 android:textColor="@color/colorBlack" />
