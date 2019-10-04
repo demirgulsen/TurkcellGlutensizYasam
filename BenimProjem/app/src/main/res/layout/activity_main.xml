@@ -26,6 +26,7 @@
         android:textColor="@color/colorWhite"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:background="#75a478"
         android:drawableLeft="@drawable/ic_register_white"
         style="@style/Widget.AppCompat.Button.Colored" />
