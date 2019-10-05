@@ -61,7 +61,6 @@ public class SavedPostActivity extends AppCompatActivity {
         recyclerView_saves = findViewById(R.id.recycler_view_save);
         recyclerView_saves.setHasFixedSize(true);
 
-
         //  LinearLayoutManager layoutManager = new LinearLayoutManager(this);   bu ikisinden biri kullanılmalı
         // LinearLayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         LinearLayoutManager linearLayoutManager_saves = new LinearLayoutManager(getApplicationContext());   //getBaseContext  bunun yerine getContext ya da this olmalı
