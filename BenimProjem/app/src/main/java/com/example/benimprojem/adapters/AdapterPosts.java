@@ -183,6 +183,7 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
               final int pLikes = Integer.parseInt(postList.get(position).getpLikes());
               mProcessLike = true;
               final String postIde = postList.get(position).getpId();
+
               likesRef.addValueEventListener(new ValueEventListener() {
                   @Override
                   public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
