@@ -4,6 +4,7 @@
 
     <item android:id="@+id/action_logout"
         android:title="Çıkış"/>
+
     <item android:id="@+id/action_search"
         android:title="Ara"
         android:icon="@android:drawable/ic_menu_search"
@@ -14,8 +15,10 @@
         android:title="Ekle"
         app:showAsAction="always"
         android:icon="@drawable/ic_add_black"/>
-    <item android:id="@+id/action_save"
+
+    <item android:id="@+id/action_saved"
+        android:title="Kaydedilenler"
         app:showAsAction="always"
-        android:icon="@drawable/ic_saved_black"
-        android:title="kaydedilenler" />
+        android:icon="@drawable/ic_saved_black"/>
+
 </menu>

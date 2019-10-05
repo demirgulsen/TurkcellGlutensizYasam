@@ -64,7 +64,7 @@ public class PostDetailActivity extends AppCompatActivity {
     ImageView uPictureIv, pImageIv;
     TextView uNameTv, pTimeTv, pTitleTv, pDescrTv, pLikesTv, pCommentsTv;
     ImageButton moreBtn;
-    Button likeBtn, shareBtn, saveBtn;
+    Button likeBtn, shareBtn;
     LinearLayout profileLayout;
     RecyclerView recyclerView;
 
@@ -104,7 +104,6 @@ public class PostDetailActivity extends AppCompatActivity {
         pCommentsTv = findViewById(R.id.pCommentsTv);
         moreBtn = findViewById(R.id.moreBtn);
         likeBtn = findViewById(R.id.likeBtn);
-        saveBtn = findViewById(R.id.saveBtn);
         shareBtn = findViewById(R.id.shareBtn);
         profileLayout = findViewById(R.id.profileLayout);
         recyclerView = findViewById(R.id.recyclerView);
@@ -112,8 +111,6 @@ public class PostDetailActivity extends AppCompatActivity {
         commentEt = findViewById(R.id.commentEt);
         sendBtn = findViewById(R.id.sendBtn);
         cAvatarIv = findViewById(R.id.cAvatarIv);
-
-
 
 
         loadPostInfo();
@@ -187,6 +184,8 @@ public class PostDetailActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void showMoreOptions() {

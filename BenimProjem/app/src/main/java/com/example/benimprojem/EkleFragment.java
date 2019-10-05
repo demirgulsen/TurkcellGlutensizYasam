@@ -397,6 +397,8 @@ public class EkleFragment extends Fragment {
         inflater.inflate(R.menu.menu_main, menu);
         menu.findItem(R.id.action_add_post).setVisible(false);
         menu.findItem(R.id.action_search).setVisible(false);
+        menu.findItem(R.id.action_saved).setVisible(false);
+
         super.onCreateOptionsMenu(menu, inflater);
 
     }
@@ -408,6 +410,11 @@ public class EkleFragment extends Fragment {
             firebaseAuth.signOut();
             checkUserStatus();
         }
+
+        if (id ==R.id.action_saved){
+            startActivity(new Intent(getActivity(), SavedPostActivity.class));
+        }
+
         return super.onOptionsItemSelected(item);
     }
 

@@ -33,6 +33,7 @@ import com.example.benimprojem.models.ModelPost;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -56,8 +57,11 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
 
     private DatabaseReference likesRef;
     private DatabaseReference postsRef;
+    private DatabaseReference savesRef;
+
 
     boolean mProcessLike= false;
+    boolean mProcessSave = false;
 
     public AdapterPosts(Context context, List<ModelPost> postList) {
         this.context = context;
@@ -65,6 +69,8 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         myUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         likesRef = FirebaseDatabase.getInstance().getReference().child("Likes");
         postsRef = FirebaseDatabase.getInstance().getReference().child("Posts");
+        //savesRef = FirebaseDatabase.getInstance().getReference().child("Saves");
+
     }
 
     @NonNull
@@ -102,6 +108,7 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         holder.pLikesTv.setText(pLikes + "Likes");
         holder.pCommentsTv.setText(pComments + "Comments");
 
+
         setLikes(holder, pId);
 
         //set user dp
@@ -131,6 +138,43 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
             public void onClick(View v) {
                 showMoreOptions(holder.moreBtn, uid, myUid, pId, pImage);
             }
+        });
+
+
+        //saved işlemi
+
+        final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+
+        final ModelPost post = postList.get(position);
+
+        isSaved(post.getpId(), holder.save); // burası  farklı
+
+
+        holder.save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //mProcessSave = true;
+                //final String postId = postList.get(position).getpId();
+                //savesRef.addValueEventListener(new ValueEventListener() {
+                //@Override
+                 //   public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                  //      if (mProcessLike){
+                            if (holder.save.getTag().equals("save")){
+                                FirebaseDatabase.getInstance().getReference().child("Saves").child(firebaseUser.getUid())
+                                        .child(post.getpId()).setValue(true);
+                            }else{
+                                FirebaseDatabase.getInstance().getReference().child("Saves").child(firebaseUser.getUid())
+                                        .child(post.getpId()).removeValue();
+                            }
+                        }
+              //      }
+              //      @Override
+               //     public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                 //   }
+            //    });
+            //}
         });
 
         holder.likeBtn.setOnClickListener(new View.OnClickListener() {
@@ -191,31 +235,49 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         });
     }
 
-    private void setLikes(final MyHolder holder, final String postKey) {
+        private void setLikes(final MyHolder holder, final String postKey) {
 
         likesRef.addValueEventListener(new ValueEventListener() {
-
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                     if (dataSnapshot.child(postKey).hasChild(myUid)){
                         holder.likeBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_liked,0,0,0);
-                        holder.likeBtn.setText("Beğenildi");
-
+                       // holder.likeBtn.setText("Beğenildi");
                     }
                     else{
                         holder.likeBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_like,0,0,0);
-                        holder.likeBtn.setText("Beğen");
+                        //holder.likeBtn.setText("Beğen");
                     }
                 }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+    }
+    private void isSaved(final String postid, final Button button){
+        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Saves")
+                .child(firebaseUser.getUid());
 
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.child(postid).exists()){
+                    ///eğer çalışmazsa burayı değiştirerek tekrar dene
+                    button.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_saved_black,0,0,0);
+                    button.setTag("Kaydedildi");
+                }else{
+                    button.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_saved,0,0,0);
+                    button.setTag("Kaydet");
+                }
+            }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
-
     }
 
 
@@ -344,7 +406,7 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         ImageView uPictureIv, pImageIv;
         TextView uNameTv, pTimeTv, pTitleTv, pDescrTv, pLikesTv, pCommentsTv;
         ImageButton moreBtn;
-        Button likeBtn, commentBtn, shareBtn;
+        Button likeBtn, commentBtn, shareBtn, save;
         LinearLayout profileLayout;
 
 
@@ -358,6 +420,7 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
             pTitleTv=itemView.findViewById(R.id.pTitleTv);
             pDescrTv=itemView.findViewById(R.id.pDescrTv);
             pLikesTv=itemView.findViewById(R.id.pLikesTv);
+            save=itemView.findViewById(R.id.saveBtn);
             pCommentsTv=itemView.findViewById(R.id.pCommentsTv);
             moreBtn=itemView.findViewById(R.id.moreBtn);
             likeBtn=itemView.findViewById(R.id.likeBtn);
@@ -367,4 +430,6 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
 
         }
     }
+
+
 }

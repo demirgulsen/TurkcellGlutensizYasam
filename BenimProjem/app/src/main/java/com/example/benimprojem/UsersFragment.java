@@ -167,8 +167,9 @@ public class UsersFragment extends Fragment {
      inflater.inflate(R.menu.menu_main, menu);
 
      //hide addpost icon from this fragment
-        menu.findItem(R.id.action_add_post).setVisible(false);
+     menu.findItem(R.id.action_add_post).setVisible(false);
 
+     menu.findItem(R.id.action_saved).setVisible(false);
 
      //search view
      MenuItem item = menu.findItem(R.id.action_search);
