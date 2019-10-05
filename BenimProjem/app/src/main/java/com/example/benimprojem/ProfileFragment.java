@@ -31,6 +31,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -90,6 +91,9 @@ public class ProfileFragment extends Fragment {
     FloatingActionButton fab;
     RecyclerView postsRecyclerView;
 
+
+
+
     //progress dialog
     ProgressDialog pd;
 
@@ -137,6 +141,10 @@ public class ProfileFragment extends Fragment {
         phoneP = view.findViewById(R.id.phoneP);
         fab = view.findViewById(R.id.fab);
         postsRecyclerView = view.findViewById(R.id.recycler_posts);
+
+
+
+
 
         //init progress dialog
         pd= new ProgressDialog(getActivity());

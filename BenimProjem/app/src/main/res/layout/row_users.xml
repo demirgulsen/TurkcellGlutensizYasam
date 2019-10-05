@@ -18,6 +18,7 @@
             android:id="@+id/avatarP"
             android:src="@drawable/ic_default_img"
             android:layout_width="70dp"
+            android:background="#d7ffd9"
             android:layout_height="70dp"/>
 
         <LinearLayout

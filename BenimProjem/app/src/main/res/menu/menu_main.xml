@@ -14,4 +14,8 @@
         android:title="Ekle"
         app:showAsAction="always"
         android:icon="@drawable/ic_add_black"/>
+    <item android:id="@+id/action_save"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_saved_black"
+        android:title="kaydedilenler" />
 </menu>

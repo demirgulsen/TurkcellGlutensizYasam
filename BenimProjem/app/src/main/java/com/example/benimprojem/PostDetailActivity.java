@@ -5,6 +5,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.MotionEventCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -29,6 +30,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.benimprojem.adapters.AdapterComments;
+import com.example.benimprojem.adapters.AdapterPosts;
 import com.example.benimprojem.models.ModelComment;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -65,6 +67,7 @@ public class PostDetailActivity extends AppCompatActivity {
     Button likeBtn, shareBtn, saveBtn;
     LinearLayout profileLayout;
     RecyclerView recyclerView;
+
 
     List<ModelComment> commentList;
     AdapterComments adapterComments;
@@ -109,6 +112,9 @@ public class PostDetailActivity extends AppCompatActivity {
         commentEt = findViewById(R.id.commentEt);
         sendBtn = findViewById(R.id.sendBtn);
         cAvatarIv = findViewById(R.id.cAvatarIv);
+
+
+
 
         loadPostInfo();
 
