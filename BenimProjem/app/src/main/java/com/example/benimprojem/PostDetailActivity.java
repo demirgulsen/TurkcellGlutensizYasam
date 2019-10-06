@@ -186,7 +186,6 @@ public class PostDetailActivity extends AppCompatActivity {
     }
 
 
-
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void showMoreOptions() {
 
@@ -335,7 +334,7 @@ public class PostDetailActivity extends AppCompatActivity {
                         likesRef.child(postId).child(myUid).removeValue();
                         mProcessLike = false;
 
-                        //likeBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_like,0,0,0);
+                        likeBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_like,0,0,0);
                         //likeBtn.setText("Beğen");
                     }
                     else{
@@ -343,7 +342,7 @@ public class PostDetailActivity extends AppCompatActivity {
                         likesRef.child(postId).child(myUid).setValue("Liked");
                         mProcessLike = false;
 
-                       //likeBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_liked,0,0,0);
+                        likeBtn.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_liked,0,0,0);
                        //likeBtn.setText("Beğenildi");
                     }
                 }

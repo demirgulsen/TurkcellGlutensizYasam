@@ -69,7 +69,7 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         myUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         likesRef = FirebaseDatabase.getInstance().getReference().child("Likes");
         postsRef = FirebaseDatabase.getInstance().getReference().child("Posts");
-        //savesRef = FirebaseDatabase.getInstance().getReference().child("Saves");
+        savesRef = FirebaseDatabase.getInstance().getReference().child("Saves");
 
     }
 
@@ -93,8 +93,9 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         String pDescr = postList.get(position).getpDescr();
         final String pImage = postList.get(position).getpImage();
         String pTimeStamp = postList.get(position).getpTime();
-        String pLikes = postList.get(position).getpLikes();  // containes total number of likes for a post
+        String pLikes = postList.get(position).getpLikes();
         String pComments = postList.get(position).getpComments();  // containes total number of likes for a post
+        //String pSaves = postList.get(position).getpSaved();
 
         Calendar calendar = Calendar.getInstance(Locale.getDefault());
         calendar.setTimeInMillis(Long.parseLong(pTimeStamp));
@@ -109,7 +110,9 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         holder.pCommentsTv.setText(pComments + "Comments");
 
 
+
         setLikes(holder, pId);
+        //setSaves(holder, pId);
 
         //set user dp
         try{
@@ -141,41 +144,57 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         });
 
 
-        //saved işlemi
-
+       //// saved işlemi
         final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-
         final ModelPost post = postList.get(position);
-
         isSaved(post.getpId(), holder.save); // burası  farklı
-
 
         holder.save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (holder.save.getTag().equals("save")){
+                    FirebaseDatabase.getInstance().getReference().child("Saves").child(firebaseUser.getUid())
+                            .child(post.getpId()).setValue(true);
+                }else{
+                    FirebaseDatabase.getInstance().getReference().child("Saves").child(firebaseUser.getUid())
+                            .child(post.getpId()).removeValue();
+                }
+            }
 
-                //mProcessSave = true;
-                //final String postId = postList.get(position).getpId();
-                //savesRef.addValueEventListener(new ValueEventListener() {
-                //@Override
-                 //   public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                  //      if (mProcessLike){
-                            if (holder.save.getTag().equals("save")){
-                                FirebaseDatabase.getInstance().getReference().child("Saves").child(firebaseUser.getUid())
-                                        .child(post.getpId()).setValue(true);
-                            }else{
-                                FirebaseDatabase.getInstance().getReference().child("Saves").child(firebaseUser.getUid())
-                                        .child(post.getpId()).removeValue();
-                            }
-                        }
-              //      }
-              //      @Override
-               //     public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                 //   }
-            //    });
-            //}
         });
+
+//        holder.save.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                final int pSaves= Integer.parseInt(postList.get(position).getpSaved());
+//                mProcessSave =true;
+//                // gönderiye tıklandığında gelen id
+//                final String postide = postList.get(position).getpId();
+//                savesRef.addValueEventListener(new ValueEventListener() {
+//                    @Override
+//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                        if (mProcessSave){
+//                            if (dataSnapshot.child(postide).hasChild(myUid)){
+//                                //zatenn kaydedilmişse postu
+//                                postsRef.child(postide).child("pSaves").setValue(""+(pSaves-1));
+//                                savesRef.child(postide).child(myUid).removeValue();
+//                                mProcessSave = false;
+//                            }else{
+//                                postsRef.child(postide).child("pSaves").setValue(""+(pSaves+1));
+//                                savesRef.child(postide).child(myUid).setValue("Saves");
+//                                mProcessSave = false;
+//                            }
+//                        }
+//                    }
+//
+//                    @Override
+//                    public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//                    }
+//                });
+//
+//            }
+//        });
 
         holder.likeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -236,7 +255,25 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         });
     }
 
-        private void setLikes(final MyHolder holder, final String postKey) {
+//    private void setSaves(final MyHolder myHolder, final String postkey) {
+//        savesRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                if (dataSnapshot.child(postkey).hasChild(myUid)){
+//                    myHolder.save.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_saved_black,0,0,0);
+//                }
+//                else{
+//                    myHolder.save.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_save,0,0,0);
+//                }
+//            }
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+//    }
+
+    private void setLikes(final MyHolder holder, final String postKey) {
 
         likesRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -256,6 +293,7 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
             }
         });
     }
+
     private void isSaved(final String postid, final Button button){
         FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Saves")
@@ -264,7 +302,7 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.child(postid).exists()){
+                if (dataSnapshot.child(postid).hasChild(myUid)){
                     ///eğer çalışmazsa burayı değiştirerek tekrar dene
                     button.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_saved_black,0,0,0);
                     button.setTag("Kaydedildi");
