@@ -3,13 +3,12 @@ package com.example.benimprojem.models;
 public class ModelPost {
 
     public static boolean get;
-    String pId, pTitle, pTime, pDescr, pLikes, pSaved, pComments, pImage, uid, uEmail, uDp, uName;
+    String pId, pTitle, pTime, pDescr, pLikes,pSaved, pComments, pImage, uid, uEmail, uDp, uName;
 
     public ModelPost() {
     }
 
     public ModelPost(String pId, String pTitle, String pTime, String pDescr, String pLikes, String pSaved, String pComments, String pImage, String uid, String uEmail, String uDp, String uName) {
-
         this.pId = pId;
         this.pTitle = pTitle;
         this.pTime = pTime;
@@ -23,6 +22,7 @@ public class ModelPost {
         this.uDp = uDp;
         this.uName = uName;
     }
+
 
     public static boolean isGet() {
         return get;

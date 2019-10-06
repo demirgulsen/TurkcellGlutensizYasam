@@ -16,8 +16,14 @@
         app:showAsAction="always"
         android:icon="@drawable/ic_add_black"/>
 
-    <item android:id="@+id/action_save"
+    <item android:id="@+id/action_diyetisyen"
+        android:title="Ekle"
         app:showAsAction="always"
-        android:icon="@drawable/ic_saved_black"
-        android:title="kaydedilenler" />
+        android:icon="@drawable/diyetis"/>
+
+    <item android:id="@+id/action_saved"
+        android:title="Kaydedilenler"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_saved_black"/>
+
 </menu>

@@ -1,4 +1,4 @@
-package com.example.benimprojem;
+package com.example.benimprojem.fragments;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -47,6 +47,10 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.benimprojem.AddPostActivity;
+import com.example.benimprojem.MainActivity;
+import com.example.benimprojem.R;
+import com.example.benimprojem.SavedPostActivity;
 import com.example.benimprojem.adapters.AdapterPosts;
 import com.example.benimprojem.models.ModelPost;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -715,6 +719,9 @@ public class ProfileFragment extends Fragment {
         }
         if (id ==R.id.action_add_post){
             startActivity(new Intent(getActivity(), AddPostActivity.class));
+        }
+        if (id ==R.id.action_saved){
+            startActivity(new Intent(getActivity(), SavedPostActivity.class));
         }
 
 

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PostDetailActivity">
+    tools:context=".SavedPostActivity">
 
     <androidx.core.widget.NestedScrollView
         android:layout_above="@+id/commentsLayout"
@@ -158,9 +158,9 @@
 
             <!--  List of comments here: will do in nextpart -->
             <TextView
-                android:text="Yorumlar"
+                android:text="Kaydedilen Gönderiler"
                 android:textColor="@color/colorBlack"
-                android:drawableStart="@drawable/ic_comments_black"
+                android:drawableStart="@drawable/ic_saved_black"
                 android:drawablePadding="5dp"
                 android:padding="2dp"
                 android:layout_width="match_parent"
@@ -168,51 +168,13 @@
                 android:drawableLeft="@drawable/ic_chat_black" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
+                android:id="@+id/recycler_view_save"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
-
-    <RelativeLayout
-        android:id="@+id/commentsLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
-
-        <com.blogspot.atifsoftwares.circularimageview.CircularImageView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="#d7ffd9"
-            android:id="@+id/cAvatarIv"
-            android:src="@drawable/ic_default_img"/>
-        <EditText
-            android:id="@+id/commentEt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/cAvatarIv"
-            android:layout_toStartOf="@+id/sendBtn"
-            android:background="@color/colorWhite"
-            android:padding="10dp"
-            android:hint="Yorumunuzu girin..."
-            android:inputType="textCapSentences|textMultiLine"
-            android:layout_centerVertical="true"
-            android:layout_margin="1dp"
-            android:layout_toRightOf="@id/cAvatarIv"
-            android:layout_toLeftOf="@+id/sendBtn" />
-        <ImageButton
-            android:id="@+id/sendBtn"
-            android:layout_alignParentEnd="true"
-            android:src="@drawable/ic_send_img"
-            android:layout_centerVertical="true"
-            android:background="#d7ffd9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true" />
-
-    </RelativeLayout>
 
 
 

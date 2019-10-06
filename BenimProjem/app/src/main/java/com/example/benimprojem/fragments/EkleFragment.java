@@ -1,4 +1,4 @@
-package com.example.benimprojem;
+package com.example.benimprojem.fragments;
 
 
 import android.Manifest;
@@ -31,6 +31,9 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.benimprojem.MainActivity;
+import com.example.benimprojem.R;
+import com.example.benimprojem.SavedPostActivity;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -397,6 +400,8 @@ public class EkleFragment extends Fragment {
         inflater.inflate(R.menu.menu_main, menu);
         menu.findItem(R.id.action_add_post).setVisible(false);
         menu.findItem(R.id.action_search).setVisible(false);
+        menu.findItem(R.id.action_saved).setVisible(false);
+
         super.onCreateOptionsMenu(menu, inflater);
 
     }
@@ -408,6 +413,11 @@ public class EkleFragment extends Fragment {
             firebaseAuth.signOut();
             checkUserStatus();
         }
+
+        if (id ==R.id.action_saved){
+            startActivity(new Intent(getActivity(), SavedPostActivity.class));
+        }
+
         return super.onOptionsItemSelected(item);
     }
 

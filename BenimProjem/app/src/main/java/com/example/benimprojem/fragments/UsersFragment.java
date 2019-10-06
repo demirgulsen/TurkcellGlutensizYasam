@@ -1,4 +1,4 @@
-package com.example.benimprojem;
+package com.example.benimprojem.fragments;
 
 
 import android.content.Intent;
@@ -20,6 +20,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
 
+import com.example.benimprojem.MainActivity;
+import com.example.benimprojem.R;
 import com.example.benimprojem.adapters.AdapterUser;
 import com.example.benimprojem.models.ModelUser;
 import com.google.firebase.auth.FirebaseAuth;
@@ -167,8 +169,9 @@ public class UsersFragment extends Fragment {
      inflater.inflate(R.menu.menu_main, menu);
 
      //hide addpost icon from this fragment
-        menu.findItem(R.id.action_add_post).setVisible(false);
+     menu.findItem(R.id.action_add_post).setVisible(false);
 
+     menu.findItem(R.id.action_saved).setVisible(false);
 
      //search view
      MenuItem item = menu.findItem(R.id.action_search);
