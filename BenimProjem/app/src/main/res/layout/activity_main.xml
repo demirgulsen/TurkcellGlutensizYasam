@@ -13,10 +13,9 @@
     <ImageView
         android:layout_width="250dp"
         android:layout_height="250dp"
-        android:src="@drawable/logo"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
-
+        android:layout_marginTop="20dp"
+        android:src="@drawable/logo" />
 
     <Button
         android:id="@+id/register_btn"

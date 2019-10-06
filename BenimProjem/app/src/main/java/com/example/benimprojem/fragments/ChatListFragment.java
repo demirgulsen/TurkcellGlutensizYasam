@@ -1,4 +1,4 @@
-package com.example.benimprojem;
+package com.example.benimprojem.fragments;
 
 
 import android.content.Intent;
@@ -20,6 +20,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
 
+import com.example.benimprojem.MainActivity;
+import com.example.benimprojem.R;
 import com.example.benimprojem.adapters.AdapterChatlist;
 import com.example.benimprojem.models.ModelChat;
 import com.example.benimprojem.models.ModelChatlist;

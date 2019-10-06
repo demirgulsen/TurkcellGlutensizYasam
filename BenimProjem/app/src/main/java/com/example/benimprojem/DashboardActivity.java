@@ -7,13 +7,16 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.media.session.MediaSession;
 import android.os.Bundle;
-import android.text.style.UpdateAppearance;
-import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.TextView;
 
+import com.example.benimprojem.fragments.AlisVerisFragment;
+import com.example.benimprojem.fragments.ChatListFragment;
+import com.example.benimprojem.fragments.EkleFragment;
+import com.example.benimprojem.fragments.HomeFragment;
+import com.example.benimprojem.fragments.KafeRestorantFragment;
+import com.example.benimprojem.fragments.ProfileFragment;
+import com.example.benimprojem.fragments.UsersFragment;
 import com.example.benimprojem.notifications.Token;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -124,6 +127,24 @@ public class DashboardActivity extends AppCompatActivity {
                             FragmentTransaction ft5 = getSupportFragmentManager().beginTransaction();
                             ft5.replace(R.id.content,fragment5, "");
                             ft5.commit();
+                            return true;
+                        case R.id.nav_kafeveRestorant:
+                            //usershome fragment transaction
+                            //home fragment transaction
+                            actionBar.setTitle("Restoran ve Kafeler");
+                            KafeRestorantFragment fragment6 = new KafeRestorantFragment();
+                            FragmentTransaction ft6 = getSupportFragmentManager().beginTransaction();
+                            ft6.replace(R.id.content,fragment6, "");
+                            ft6.commit();
+                            return true;
+                        case R.id.nav_alisVeris:
+                            //usershome fragment transaction
+                            //home fragment transaction
+                            actionBar.setTitle("Alış-Veriş Yap");
+                            AlisVerisFragment fragment7 = new AlisVerisFragment();
+                            FragmentTransaction ft7 = getSupportFragmentManager().beginTransaction();
+                            ft7.replace(R.id.content,fragment7, "");
+                            ft7.commit();
                             return true;
                     }
                     return false;

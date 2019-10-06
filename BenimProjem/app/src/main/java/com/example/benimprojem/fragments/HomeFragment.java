@@ -1,4 +1,4 @@
-package com.example.benimprojem;
+package com.example.benimprojem.fragments;
 
 
 import android.content.Intent;
@@ -23,6 +23,10 @@ import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.example.benimprojem.AddPostActivity;
+import com.example.benimprojem.MainActivity;
+import com.example.benimprojem.R;
+import com.example.benimprojem.SavedPostActivity;
 import com.example.benimprojem.adapters.AdapterPosts;
 import com.example.benimprojem.models.ModelPost;
 import com.google.firebase.auth.FirebaseAuth;
