@@ -24,6 +24,7 @@ import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.example.benimprojem.AddPostActivity;
+import com.example.benimprojem.DiyetisyenActivity;
 import com.example.benimprojem.MainActivity;
 import com.example.benimprojem.R;
 import com.example.benimprojem.SavedPostActivity;
@@ -204,7 +205,13 @@ public class HomeFragment extends Fragment {
         if (id ==R.id.action_saved){
             startActivity(new Intent(getActivity(), SavedPostActivity.class));
         }
+        if (id ==R.id.action_saved){
+            startActivity(new Intent(getActivity(), SavedPostActivity.class));
+        }
 
+        if (id ==R.id.action_diyetisyen){
+            startActivity(new Intent(getActivity(), DiyetisyenActivity.class));
+        }
 
         return super.onOptionsItemSelected(item);
     }

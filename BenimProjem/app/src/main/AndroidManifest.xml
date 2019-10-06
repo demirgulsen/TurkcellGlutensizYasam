@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SavedPostActivity"></activity>
+        <activity android:name=".DiyetisyenActivity"></activity>
+        <activity android:name=".SavedPostActivity" />
         <activity android:name=".PostDetailActivity" />
         <activity android:name=".ThereProfileActivity" />
         <activity android:name=".AddPostActivity" />

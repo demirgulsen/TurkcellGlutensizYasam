@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DiyetisyenActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#d7ffd9">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/diyetis" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+
+                android:gravity="center"
+                android:layout_marginTop="25dp"
+                android:padding="15dp"
+                android:textSize="20dp"
+                android:text="Diyetisyen Desteği"
+                android:textColor="#025F07" />
+
+        </LinearLayout>
+
+
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="0dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="6dp"
+            android:gravity="center"
+            android:textColor="#3B703F"
+            android:text="Sayfamız çok yakında hizmetinize sunulacaktır..."
+            android:textSize="35dp" />
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
