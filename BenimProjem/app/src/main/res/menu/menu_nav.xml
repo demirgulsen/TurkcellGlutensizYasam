@@ -18,12 +18,12 @@
         android:title="Mesajlar"
         android:icon="@drawable/ic_chat_black"/>
 
-    <item android:id="@+id/nav_kafeveRestorant"
-        android:title="Kafe ve Restorantlar"
-        android:icon="@drawable/ic_cafe"/>
+<!--    <item android:id="@+id/nav_kafeveRestorant"-->
+<!--        android:title="Kafe ve Restorantlar"-->
+<!--        android:icon="@drawable/ic_cafe"/>-->
 
-    <item android:id="@+id/nav_alisVeris"
-        android:title="Alış-Veriş Yap"
-        android:icon="@drawable/ic_shopping"/>
+<!--    <item android:id="@+id/nav_alisVeris"-->
+<!--        android:title="Alış-Veriş Yap"-->
+<!--        android:icon="@drawable/ic_shopping"/>-->
 
 </menu>

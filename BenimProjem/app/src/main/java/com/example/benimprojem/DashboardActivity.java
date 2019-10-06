@@ -128,24 +128,24 @@ public class DashboardActivity extends AppCompatActivity {
                             ft5.replace(R.id.content,fragment5, "");
                             ft5.commit();
                             return true;
-                        case R.id.nav_kafeveRestorant:
-                            //usershome fragment transaction
-                            //home fragment transaction
-                            actionBar.setTitle("Restoran ve Kafeler");
-                            KafeRestorantFragment fragment6 = new KafeRestorantFragment();
-                            FragmentTransaction ft6 = getSupportFragmentManager().beginTransaction();
-                            ft6.replace(R.id.content,fragment6, "");
-                            ft6.commit();
-                            return true;
-                        case R.id.nav_alisVeris:
-                            //usershome fragment transaction
-                            //home fragment transaction
-                            actionBar.setTitle("Alış-Veriş Yap");
-                            AlisVerisFragment fragment7 = new AlisVerisFragment();
-                            FragmentTransaction ft7 = getSupportFragmentManager().beginTransaction();
-                            ft7.replace(R.id.content,fragment7, "");
-                            ft7.commit();
-                            return true;
+//                        case R.id.nav_kafeveRestorant:
+//                            //usershome fragment transaction
+//                            //home fragment transaction
+//                            actionBar.setTitle("Restoran ve Kafeler");
+//                            KafeRestorantFragment fragment6 = new KafeRestorantFragment();
+//                            FragmentTransaction ft6 = getSupportFragmentManager().beginTransaction();
+//                            ft6.replace(R.id.content,fragment6, "");
+//                            ft6.commit();
+//                            return true;
+//                        case R.id.nav_alisVeris:
+//                            //usershome fragment transaction
+//                            //home fragment transaction
+//                            actionBar.setTitle("Alış-Veriş Yap");
+//                            AlisVerisFragment fragment7 = new AlisVerisFragment();
+//                            FragmentTransaction ft7 = getSupportFragmentManager().beginTransaction();
+//                            ft7.replace(R.id.content,fragment7, "");
+//                            ft7.commit();
+//                            return true;
                     }
                     return false;
                 }
