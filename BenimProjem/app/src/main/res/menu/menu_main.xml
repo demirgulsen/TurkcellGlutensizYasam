@@ -4,15 +4,18 @@
 
     <item android:id="@+id/action_logout"
         android:title="Çıkış"/>
+
     <item android:id="@+id/action_search"
         android:title="Ara"
         android:icon="@android:drawable/ic_menu_search"
         app:showAsAction="always"
         app:actionViewClass="android.widget.SearchView"/>
+
     <item android:id="@+id/action_add_post"
         android:title="Ekle"
         app:showAsAction="always"
         android:icon="@drawable/ic_add_black"/>
+
     <item android:id="@+id/action_save"
         app:showAsAction="always"
         android:icon="@drawable/ic_saved_black"

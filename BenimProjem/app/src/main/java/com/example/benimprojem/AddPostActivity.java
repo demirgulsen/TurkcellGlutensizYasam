@@ -56,7 +56,7 @@ public class AddPostActivity extends AppCompatActivity {
 
     //permissions constants
     private static final  int CAMERA_REQUEST_CODE =100;
-    private static final  int STORAGE_REQUEST_CODE =200;
+    private static final  int STORAGE_REQUEST_CODE=200;
     //image pick constants
     private static final int IMAGE_PICK_GALLERY_CODE =400;
     private static final int IMAGE_PICK_CAMERA_CODE =300;
@@ -104,6 +104,26 @@ public class AddPostActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         checkUserStatus();
 
+        actionBar.setSubtitle(email);
+
+        userDbRef = FirebaseDatabase.getInstance().getReference("Users");
+        Query query =userDbRef.orderByChild("email").equalTo(email);
+        query.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds : dataSnapshot.getChildren()){
+                    name = ""+ ds.child("name").getValue();
+                    email = ""+ ds.child("email").getValue();
+                    dp = ""+ ds.child("image").getValue();
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         //init views
         titleEt = findViewById(R.id.pTitleEt);
@@ -132,24 +152,7 @@ public class AddPostActivity extends AppCompatActivity {
         actionBar.setSubtitle(email);
 
         //get some info of current user to include in post
-        userDbRef = FirebaseDatabase.getInstance().getReference("Users");
-        Query query =userDbRef.orderByChild("email").equalTo(email);
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for(DataSnapshot ds : dataSnapshot.getChildren()){
-                     name = ""+ ds.child("name").getValue();
-                     email = ""+ ds.child("email").getValue();
-                     dp = ""+ ds.child("image").getValue();
 
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
 
         //get image from camera/ gallery on click
         imageIv.setOnClickListener(new View.OnClickListener() {
@@ -168,22 +171,33 @@ public class AddPostActivity extends AppCompatActivity {
                 String description =  descriptionEt.getText().toString().trim();
 
                 if (TextUtils.isEmpty(title)){
-                    Toast.makeText(AddPostActivity.this, "Başlık girin...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddPostActivity.this,
+                            "Başlık girin...", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 if (TextUtils.isEmpty(description)){
-                    Toast.makeText(AddPostActivity.this, "Açıklama girin...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddPostActivity.this,
+                            "Açıklama girin...", Toast.LENGTH_SHORT).show();
                     return;
+                }
+                if (image_uri==null){
+                    uploadData(title,description,"noImage");
+                }
+                else{
+                    uploadData(title,description,String.valueOf(image_uri));
                 }
 
                 if (isUpdateKey.equals("editPost")){
                     beginUpdate(title, description, editPostId);
                 }
                 else{
-                    uploadData(title, description);
+                    uploadData(title, title, description);
 
                 }
 
+            }
+
+            private void uploadData(String title, String description, String uri) {
             }
         });
 
@@ -408,7 +422,7 @@ public class AddPostActivity extends AppCompatActivity {
         });
     }
 
-    private void uploadData(final String title, final String description) {
+    private void uploadData(String s, final String title, final String description, final String uri ) {
         pd.setMessage("Post gönderiliyor...");
         pd.show();
         //for post-image name, post-id, post-publish-time
@@ -416,15 +430,10 @@ public class AddPostActivity extends AppCompatActivity {
 
         String filePathAndName ="Posts/" + "post_" + timeStamp;
 
-        if (imageIv.getDrawable() != null){
-            Bitmap bitmap = ((BitmapDrawable)imageIv.getDrawable()).getBitmap();
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-
-            bitmap.compress(Bitmap.CompressFormat.PNG, 100, baos);
-            byte[] data =baos.toByteArray();
+        if (!uri.equals("noImage")){
 
             StorageReference ref = FirebaseStorage.getInstance().getReference().child(filePathAndName);
-            ref.putBytes(data)
+            ref.putFile(Uri.parse(uri))
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
@@ -585,26 +594,31 @@ public class AddPostActivity extends AppCompatActivity {
     }
 
     private boolean checkStoragePermission(){
-        boolean result = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        boolean result = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 == (PackageManager.PERMISSION_GRANTED);
         return result;
     }
 
     private  void requestStoragePermission(){
-        ActivityCompat.requestPermissions(this, storagePermission, STORAGE_REQUEST_CODE);
+        ActivityCompat.requestPermissions(this,
+                storagePermission, STORAGE_REQUEST_CODE);
     }
 
     private boolean checkCameraPermission(){
-        boolean result = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+        boolean result = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.CAMERA)
                 == (PackageManager.PERMISSION_GRANTED);
 
-        boolean result1 = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+        boolean result1 = ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 == (PackageManager.PERMISSION_GRANTED);
         return result && result1;
     }
 
     private  void requestCameraPermission(){
-        ActivityCompat.requestPermissions(this, cameraPermission, CAMERA_REQUEST_CODE);
+        ActivityCompat.requestPermissions(this,
+                cameraPermission, CAMERA_REQUEST_CODE);
     }
 
 
@@ -700,7 +714,7 @@ public class AddPostActivity extends AppCompatActivity {
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         if(resultCode == RESULT_OK){
             if (requestCode == IMAGE_PICK_GALLERY_CODE){
-
+                image_uri=data.getData();
                 //set to imageview
                 imageIv.setImageURI(image_uri);
             }

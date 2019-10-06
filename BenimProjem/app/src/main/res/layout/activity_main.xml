@@ -5,17 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
+    android:background="@color/colorWhite"
     android:padding="20dp"
     tools:context=".MainActivity">
     <!--    android:orientation="vertical"-->
 
 
     <ImageView
-        android:layout_width="250dp"
-        android:layout_height="250dp"
-        android:src="@drawable/logo"
+        android:id="@+id/girislogo"
+        android:layout_width="346dp"
+        android:layout_height="341dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"/>
+        android:layout_marginTop="20dp"
+        android:src="@drawable/logokesin" />
 
 
     <Button
@@ -41,7 +43,6 @@
         android:textColor="@color/colorWhite"
         android:layout_width="match_parent"
         android:background="#75a478"
-
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_login_white"
         style="@style/Widget.AppCompat.Button.Colored"/>
