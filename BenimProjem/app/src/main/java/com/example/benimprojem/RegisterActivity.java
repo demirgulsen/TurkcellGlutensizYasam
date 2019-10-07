@@ -122,11 +122,7 @@ public class RegisterActivity extends AppCompatActivity {
                             }
                         }
                     });
-        }else{
-            Toast.makeText(this, "parolalar uyuşmuyor", Toast.LENGTH_SHORT).show();
-        }
-
-    }
+        }    }
     private void calculateStrengthPassword(String passwordText) {
         int buyukHarf = 0, kucukHarf = 0, sayilar = 0,
                 ozelKarakterler = 0, digerKarakterler = 0, gucSeviyeNotu = 0;
@@ -136,7 +132,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         if (passwordLength == 0) {
             tvPasswordStrength.setText("Invalid Password");
-            tvPasswordStrength.setBackgroundColor(Color.RED);
+            tvPasswordStrength.setBackgroundColor(Color.GRAY);
             return;
         }
 
