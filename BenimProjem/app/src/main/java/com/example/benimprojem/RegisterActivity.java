@@ -94,15 +94,21 @@ public class RegisterActivity extends AppCompatActivity {
         mRegisterBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                signup_Email();
+                final String email = mEmailEt.getText().toString().trim();
+                final String password = mPasswordEt.getText().toString().trim();
+                final String password2 = mPasswordEt2.getText().toString().trim();
+                signup_Email(email,password,password2);
+            }
+        });
+        mHaveAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+                finish();
             }
         });
     }
-    private void signup_Email() {
-
-        String email = mEmailEt.getText().toString().trim();
-        String password = mPasswordEt.getText().toString().trim();
-        String password2 = mPasswordEt2.getText().toString().trim();
+    private void signup_Email(String email, String password, String password2) {
 
         if (password.equals(password2)){
             mAuth.createUserWithEmailAndPassword(email, password)
@@ -110,15 +116,43 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
+                                progressDialog.dismiss();
+                                FirebaseUser user = mAuth.getCurrentUser();
+
+                                String email =user.getEmail();
+                                String uid =user.getUid();
+                                //kullanıcı bilgileri kaydedildiğinde realtime database den bilgiler gelir
+                                //HashMap kullanılır
+
+                                HashMap<Object, String> hashMap = new HashMap<>();
+                                //put info in hashmap
+                                hashMap.put("email", email);
+                                hashMap.put("uid", uid);
+                                hashMap.put("name", "");  // will add later(editprofil )
+                                hashMap.put("onlineStatus", "online");
+                                hashMap.put("typingTo", "noOne");
+                                hashMap.put("phone", ""); // will add later(editprofil )
+                                hashMap.put("image", ""); // will add later(editprofil )
+                                hashMap.put("cover", ""); // will add later(editprofil )
+
+                                //firebase database instance
+                                FirebaseDatabase database = FirebaseDatabase.getInstance();
+                                //path to store user data named  "Users"
+                                DatabaseReference reference = database.getReference("Users");
+                                //put data within hashmap in database
+                                reference.child(uid).setValue(hashMap);
                                 // Sign in success, update UI with the signed-in user's information
                                 Toast.makeText(RegisterActivity.this, "Hesap Başarılı bir şekilde oluşturuldu", Toast.LENGTH_SHORT).show();
-                                FirebaseUser user = mAuth.getCurrentUser();
+                                startActivity(new Intent(RegisterActivity.this, DashboardActivity.class));
+                                finish();
+
+                                user = mAuth.getCurrentUser();
                             } else {
                                 // If sign in fails, display a message to the user.
                                 //Log.w(TAG, "hesap oluşturulamadı", task.getException());
+                                progressDialog.dismiss();
                                 Log.w((String) Tag,"hesap oluşturulamadı!",task.getException());
-                                Toast.makeText(RegisterActivity.this, "Doğrulama hatalı!!",
-                                        Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterActivity.this, "Doğrulama hatalı!!", Toast.LENGTH_SHORT).show();
                             }
                         }
                     });
@@ -200,67 +234,6 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
-    //burası asıl kısım
-    private void registerUser(String email, String password) {
-
-        //email ve şifre özellikleri geçerliyse kullanıcı kaydını göster
-        progressDialog.show();
-        mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, dialog rededilir ve register activity başlar
-                            progressDialog.dismiss();
-                            FirebaseUser user = mAuth.getCurrentUser();
-
-                            String email =user.getEmail();
-                            String uid =user.getUid();
-                            //kullanıcı bilgileri kaydedildiğinde realtime database den bilgiler gelir
-                            //HashMap kullanılır
-
-                            HashMap<Object, String> hashMap = new HashMap<>();
-                            //put info in hashmap
-                            hashMap.put("email", email);
-                            hashMap.put("uid", uid);
-                            hashMap.put("name", "");  // will add later(editprofil )
-                            hashMap.put("onlineStatus", "online");
-                            hashMap.put("typingTo", "noOne");
-                            hashMap.put("phone", ""); // will add later(editprofil )
-                            hashMap.put("image", ""); // will add later(editprofil )
-                            hashMap.put("cover", ""); // will add later(editprofil )
-
-                            //firebase database instance
-                            FirebaseDatabase database = FirebaseDatabase.getInstance();
-                            //path to store user data named  "Users"
-                            DatabaseReference reference = database.getReference("Users");
-                            //put data within hashmap in database
-                            reference.child(uid).setValue(hashMap);
-
-
-                            Toast.makeText(RegisterActivity.this, "Kaydediliyor...\n"+user.getEmail(), Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(RegisterActivity.this, DashboardActivity.class));
-                            finish();
-
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            progressDialog.dismiss();
-                            Toast.makeText(RegisterActivity.this, "Doğrulama Başarısız.", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                progressDialog.dismiss();
-                Toast.makeText(RegisterActivity.this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
 
     @Override
     public boolean onSupportNavigateUp() {
