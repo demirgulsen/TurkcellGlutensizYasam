@@ -17,7 +17,7 @@
         android:icon="@drawable/ic_add_black"/>
 
     <item android:id="@+id/action_diyetisyen"
-        android:title="Ekle"
+        android:title="Diyetisyen"
         app:showAsAction="always"
         android:icon="@drawable/diyetis"/>
 

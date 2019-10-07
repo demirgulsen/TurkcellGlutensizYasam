@@ -209,4 +209,5 @@ public class LoginActivity extends AppCompatActivity {
         onBackPressed();  //go previous activity
         return super.onSupportNavigateUp();
     }
+
 }

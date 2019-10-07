@@ -113,12 +113,14 @@ public class RegisterActivity extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
                                 Toast.makeText(RegisterActivity.this, "Hesap Başarılı bir şekilde oluşturuldu", Toast.LENGTH_SHORT).show();
                                 FirebaseUser user = mAuth.getCurrentUser();
+                                startActivity(new Intent(RegisterActivity.this, DashboardActivity.class));
+                                finish();
                             } else {
                                 // If sign in fails, display a message to the user.
                                 //Log.w(TAG, "hesap oluşturulamadı", task.getException());
                                 Log.w((String) Tag,"hesap oluşturulamadı!",task.getException());
-                                Toast.makeText(RegisterActivity.this, "Doğrulama hatalı!!",
-                                        Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterActivity.this, "Doğrulama hatalı!!", Toast.LENGTH_SHORT).show();
+
                             }
                         }
                     });
@@ -135,7 +137,7 @@ public class RegisterActivity extends AppCompatActivity {
         int passwordLength = passwordText.length();
 
         if (passwordLength == 0) {
-            tvPasswordStrength.setText("Invalid Password");
+            tvPasswordStrength.setText("Geçersiz Şifre");
             tvPasswordStrength.setBackgroundColor(Color.RED);
             return;
         }
