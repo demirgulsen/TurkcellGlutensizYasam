@@ -8,6 +8,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.tv.TvContract;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.Patterns;
@@ -31,6 +32,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText mEmailEt, mPasswordEt;
     TextView notHaveAccount, mRecoverPass;
     Button mLoginBtn;
+    TvContract.Channels.Logo logokesin;
 
 
     private FirebaseAuth mAuth;

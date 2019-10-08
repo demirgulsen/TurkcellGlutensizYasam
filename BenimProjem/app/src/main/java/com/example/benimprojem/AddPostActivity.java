@@ -670,6 +670,7 @@ public class AddPostActivity extends AppCompatActivity {
             firebaseAuth.signOut();
             checkUserStatus();
         }
+
         return super.onOptionsItemSelected(item);
     }
 

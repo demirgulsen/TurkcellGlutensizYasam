@@ -414,6 +414,7 @@ public class EkleFragment extends Fragment {
             checkUserStatus();
         }
 
+
         if (id ==R.id.action_saved){
             startActivity(new Intent(getActivity(), SavedPostActivity.class));
         }
