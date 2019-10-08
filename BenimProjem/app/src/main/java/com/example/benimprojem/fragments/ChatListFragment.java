@@ -20,8 +20,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
 
+import com.example.benimprojem.AddPostActivity;
+import com.example.benimprojem.DiyetisyenActivity;
 import com.example.benimprojem.MainActivity;
 import com.example.benimprojem.R;
+import com.example.benimprojem.SavedPostActivity;
+import com.example.benimprojem.ShopActivity;
 import com.example.benimprojem.adapters.AdapterChatlist;
 import com.example.benimprojem.models.ModelChat;
 import com.example.benimprojem.models.ModelChatlist;
@@ -183,13 +187,13 @@ public class ChatListFragment extends Fragment {
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
         inflater.inflate(R.menu.menu_main, menu);
 
-        menu.findItem(R.id.action_saved).setVisible(false);
+       // menu.findItem(R.id.action_saved).setVisible(false);
         //hide addpost icon from this fragment
-        menu.findItem(R.id.action_add_post).setVisible(false);
-        menu.findItem(R.id.action_diyetisyen).setVisible(false);
-        menu.findItem(R.id.action_saved).setVisible(false);
-        menu.findItem(R.id.action_kafe).setVisible(false);
-        menu.findItem(R.id.action_shop).setVisible(false);
+//        menu.findItem(R.id.action_add_post).setVisible(false);
+//        menu.findItem(R.id.action_diyetisyen).setVisible(false);
+//        menu.findItem(R.id.action_alisveris).setVisible(false);
+//        menu.findItem(R.id.action_kafe).setVisible(false);
+
 
 
         super.onCreateOptionsMenu(menu, inflater);
@@ -205,26 +209,24 @@ public class ChatListFragment extends Fragment {
             firebaseAuth.signOut();
             checkUserStatus();
         }
-        if (id ==R.id.action_shop){
-            firebaseAuth.signOut();
-            checkUserStatus();
-        }
-        if (id ==R.id.action_kafe){
-            firebaseAuth.signOut();
-            checkUserStatus();
-        }
-        if (id ==R.id.action_saved){
-            firebaseAuth.signOut();
-            checkUserStatus();
-        }
-        if (id ==R.id.action_diyetisyen){
-            firebaseAuth.signOut();
-            checkUserStatus();
-        }
-        if (id ==R.id.action_add_post){
-            firebaseAuth.signOut();
-            checkUserStatus();
-        }
+
+//        if (id ==R.id.action_add_post){
+//            startActivity(new Intent(getActivity(), AddPostActivity.class));
+//        }
+//
+//        if (id ==R.id.action_saved){
+//            startActivity(new Intent(getActivity(), SavedPostActivity.class));
+//        }
+//
+//        if (id ==R.id.action_diyetisyen){
+//            startActivity(new Intent(getActivity(), DiyetisyenActivity.class));
+//        }
+//        if (id ==R.id.action_alisveris){
+//            startActivity(new Intent(getActivity(), ShopActivity.class));
+//        }
+//        if (id ==R.id.action_kafe){
+//            startActivity(new Intent(getActivity(), ShopActivity.class));
+//        }
 
         return super.onOptionsItemSelected(item);
     }

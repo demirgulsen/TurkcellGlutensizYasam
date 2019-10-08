@@ -22,7 +22,7 @@ public class DiyetisyenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_diyetisyen);
 
         actionBar = getSupportActionBar();
-        actionBar.setTitle("Diyetisyen Desteği");
+        //actionBar.setTitle("Diyetisyen Desteği");
         actionBar.setDisplayShowHomeEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
@@ -36,10 +36,13 @@ public class DiyetisyenActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        menu.findItem(R.id.action_add_post).setVisible(false);
-        menu.findItem(R.id.action_search).setVisible(false);
-        menu.findItem(R.id.action_saved).setVisible(false);
+//        menu.findItem(R.id.action_add_post).setVisible(false);
+//        menu.findItem(R.id.action_search).setVisible(false);
+//        menu.findItem(R.id.action_saved).setVisible(false)
+
         menu.findItem(R.id.action_diyetisyen).setVisible(false);
+//        menu.findItem(R.id.action_alisveris).setVisible(false);
+//        menu.findItem(R.id.action_kafe).setVisible(false);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -78,6 +81,9 @@ public class DiyetisyenActivity extends AppCompatActivity {
         if (id ==R.id.action_logout){
             FirebaseAuth.getInstance().signOut();
             checkUserStatus();
+        }
+        if (id ==R.id.action_alisveris){
+            startActivity(new Intent(this, ShopActivity.class));
         }
         return super.onOptionsItemSelected(item);
     }

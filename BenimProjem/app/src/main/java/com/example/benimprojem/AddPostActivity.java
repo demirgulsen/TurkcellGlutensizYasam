@@ -638,8 +638,8 @@ public class AddPostActivity extends AppCompatActivity {
     private void checkUserStatus(){
         FirebaseUser user = firebaseAuth.getCurrentUser();
         if (user != null){
-            email = user.getEmail();
-            uid = user.getUid();
+            //email = user.getEmail();
+            //uid = user.getUid();
 
         }
         else{
@@ -660,6 +660,8 @@ public class AddPostActivity extends AppCompatActivity {
         menu.findItem(R.id.action_add_post).setVisible(false);
         menu.findItem(R.id.action_search).setVisible(false);
         menu.findItem(R.id.action_saved).setVisible(false);
+        //menu.findItem(R.id.action_alisveris).setVisible(false);
+        //menu.findItem(R.id.action_kafe).setVisible(false);
         return super.onCreateOptionsMenu(menu);
     }
 

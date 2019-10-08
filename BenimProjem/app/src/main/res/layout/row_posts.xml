@@ -88,6 +88,13 @@
                 android:layout_weight="1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
+            <TextView
+                android:id="@+id/pSavesTv"
+                android:text="1.2k Kaydetme"
+                android:textColor="#E66785"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
             <TextView
                 android:id="@+id/pCommentsTv"

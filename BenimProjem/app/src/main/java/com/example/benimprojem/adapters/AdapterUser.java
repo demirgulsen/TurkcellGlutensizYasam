@@ -74,10 +74,6 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.MyHolder> {
             @Override
             public void onClick(View v) {
 
-                Intent intent= new Intent(context, ChatActivity.class);
-                intent.putExtra("hisUid", hisUID);                             // burası "hisUid" idi normalde
-                context.startActivity(intent);
-
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 builder.setItems(new String[]{"Profile", "Chat"}, new DialogInterface.OnClickListener() {
@@ -91,7 +87,7 @@ public class AdapterUser extends RecyclerView.Adapter<AdapterUser.MyHolder> {
                         }
                         if (which ==1){
                             Intent intent= new Intent(context, ChatActivity.class);
-                            intent.putExtra("hisUid", hisUID);                             // burası "hisUid" idi normalde
+                            intent.putExtra("hisUid", hisUID);                             // burasý "hisUid" idi normalde
                             context.startActivity(intent);
 
                         }

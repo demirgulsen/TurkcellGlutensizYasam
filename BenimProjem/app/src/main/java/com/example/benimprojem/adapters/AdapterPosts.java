@@ -44,6 +44,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.text.BreakIterator;
 import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
@@ -95,7 +96,7 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         String pTimeStamp = postList.get(position).getpTime();
         String pLikes = postList.get(position).getpLikes();
         String pComments = postList.get(position).getpComments();  // containes total number of likes for a post
-        //String pSaves = postList.get(position).getpSaved();
+        String pSaves = postList.get(position).getpSaves();
 
         Calendar calendar = Calendar.getInstance(Locale.getDefault());
         calendar.setTimeInMillis(Long.parseLong(pTimeStamp));
@@ -107,12 +108,13 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         holder.pTitleTv.setText(pTitle);
         holder.pDescrTv.setText(pDescr);
         holder.pLikesTv.setText(pLikes + "Likes");
+        holder.pSavesTv.setText(pSaves + "Saves");
         holder.pCommentsTv.setText(pComments + "Comments");
 
 
 
         setLikes(holder, pId);
-        //setSaves(holder, pId);
+        setSaves(holder, pId);
 
         //set user dp
         try{
@@ -145,56 +147,61 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
 
 
        //// saved işlemi
-        final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        final ModelPost post = postList.get(position);
-        isSaved(post.getpId(), holder.save); // burası  farklı
+//        final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+//        final ModelPost post = postList.get(position);
+//        isSaved(post.getpId(), holder.save); // burası  farklı
+//
+//        holder.save.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                if (holder.save.getTag().equals("save")){
+//                    FirebaseDatabase.getInstance().getReference().child("Saves").child(firebaseUser.getUid())
+//                            .child(post.getpId()).setValue(true);
+//                }else{
+//                    FirebaseDatabase.getInstance().getReference().child("Saves").child(firebaseUser.getUid())
+//                            .child(post.getpId()).removeValue();
+//                }
+//            }
+//
+//        });
 
         holder.save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (holder.save.getTag().equals("save")){
-                    FirebaseDatabase.getInstance().getReference().child("Saves").child(firebaseUser.getUid())
-                            .child(post.getpId()).setValue(true);
-                }else{
-                    FirebaseDatabase.getInstance().getReference().child("Saves").child(firebaseUser.getUid())
-                            .child(post.getpId()).removeValue();
-                }
+                final int pSaves= Integer.parseInt(postList.get(position).getpSaves());
+                mProcessSave =true;
+
+                // gönderiye tıklandığında gelen id
+                final String postide = postList.get(position).getpId();
+                savesRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        if (mProcessSave){
+                            if (dataSnapshot.child(postide).hasChild(myUid)){
+                                //zatenn kaydedilmişse postu
+
+                                postsRef.child(postide).child("pSaves").setValue(""+(pSaves-1));
+
+                                savesRef.child(postide).child(myUid).removeValue();
+                                mProcessSave = false;
+                            }else{
+                                postsRef.child(postide).child("pSaves").setValue(true);
+
+                                postsRef.child(postide).child("pSaves").setValue(""+(pSaves+1));
+                                savesRef.child(postide).child(myUid).setValue("Saved");
+                                mProcessSave = false;
+                            }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
+
             }
-
         });
-
-//        holder.save.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                final int pSaves= Integer.parseInt(postList.get(position).getpSaved());
-//                mProcessSave =true;
-//                // gönderiye tıklandığında gelen id
-//                final String postide = postList.get(position).getpId();
-//                savesRef.addValueEventListener(new ValueEventListener() {
-//                    @Override
-//                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                        if (mProcessSave){
-//                            if (dataSnapshot.child(postide).hasChild(myUid)){
-//                                //zatenn kaydedilmişse postu
-//                                postsRef.child(postide).child("pSaves").setValue(""+(pSaves-1));
-//                                savesRef.child(postide).child(myUid).removeValue();
-//                                mProcessSave = false;
-//                            }else{
-//                                postsRef.child(postide).child("pSaves").setValue(""+(pSaves+1));
-//                                savesRef.child(postide).child(myUid).setValue("Saves");
-//                                mProcessSave = false;
-//                            }
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//                    }
-//                });
-//
-//            }
-//        });
 
         holder.likeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -255,23 +262,23 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         });
     }
 
-//    private void setSaves(final MyHolder myHolder, final String postkey) {
-//        savesRef.addValueEventListener(new ValueEventListener() {
-//            @Override
-//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                if (dataSnapshot.child(postkey).hasChild(myUid)){
-//                    myHolder.save.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_saved_black,0,0,0);
-//                }
-//                else{
-//                    myHolder.save.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_save,0,0,0);
-//                }
-//            }
-//            @Override
-//            public void onCancelled(@NonNull DatabaseError databaseError) {
-//
-//            }
-//        });
-//    }
+    private void setSaves(final MyHolder myHolder, final String postkey) {
+        savesRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.child(postkey).hasChild(myUid)){
+                    myHolder.save.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_saved_black,0,0,0);
+                }
+                else{
+                    myHolder.save.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_save,0,0,0);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+    }
 
     private void setLikes(final MyHolder holder, final String postKey) {
 
@@ -294,30 +301,30 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
         });
     }
 
-    private void isSaved(final String postid, final Button button){
-        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Saves")
-                .child(firebaseUser.getUid());
-
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.child(postid).hasChild(myUid)){
-                    ///eğer çalışmazsa burayı değiştirerek tekrar dene
-                    button.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_saved_black,0,0,0);
-                    button.setTag("Kaydedildi");
-                }else{
-                    button.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_saved,0,0,0);
-                    button.setTag("Kaydet");
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-    }
+//    private void isSaved(final String postid, final Button button){
+//        FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
+//        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Saves")
+//                .child(firebaseUser.getUid());
+//
+//        reference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+//                if (dataSnapshot.child(postid).hasChild(myUid)){
+//                    ///eğer çalışmazsa burayı değiştirerek tekrar dene
+//                    button.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_saved_black,0,0,0);
+//                    button.setTag("Kaydedildi");
+//                }else{
+//                    button.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_saved,0,0,0);
+//                    button.setTag("Kaydet");
+//                }
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError databaseError) {
+//
+//            }
+//        });
+//    }
 
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -441,9 +448,10 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
 
     class MyHolder extends RecyclerView.ViewHolder{
 
+
         //views from row_post.xml
         ImageView uPictureIv, pImageIv;
-        TextView uNameTv, pTimeTv, pTitleTv, pDescrTv, pLikesTv, pCommentsTv;
+        TextView uNameTv, pTimeTv, pTitleTv, pDescrTv, pLikesTv, pSavesTv, pCommentsTv;
         ImageButton moreBtn;
         Button likeBtn, commentBtn, shareBtn, save;
         LinearLayout profileLayout;
@@ -459,10 +467,11 @@ public class AdapterPosts  extends RecyclerView.Adapter<AdapterPosts.MyHolder>{
             pTitleTv=itemView.findViewById(R.id.pTitleTv);
             pDescrTv=itemView.findViewById(R.id.pDescrTv);
             pLikesTv=itemView.findViewById(R.id.pLikesTv);
-            save=itemView.findViewById(R.id.saveBtn);
+            pSavesTv = itemView.findViewById(R.id.pSavesTv);
             pCommentsTv=itemView.findViewById(R.id.pCommentsTv);
             moreBtn=itemView.findViewById(R.id.moreBtn);
             likeBtn=itemView.findViewById(R.id.likeBtn);
+            save=itemView.findViewById(R.id.saveBtn);
             commentBtn=itemView.findViewById(R.id.commentBtn);
             shareBtn=itemView.findViewById(R.id.shareBtn);
             profileLayout = itemView.findViewById(R.id.profileLayout);

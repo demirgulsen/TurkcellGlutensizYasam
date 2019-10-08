@@ -3,12 +3,13 @@ package com.example.benimprojem.models;
 public class ModelChatlist {
     String id;
 
-    public ModelChatlist() {
-    }
-
     public ModelChatlist(String id) {
         this.id = id;
     }
+
+    public ModelChatlist() {
+    }
+
 
     public String getId() {
         return id;

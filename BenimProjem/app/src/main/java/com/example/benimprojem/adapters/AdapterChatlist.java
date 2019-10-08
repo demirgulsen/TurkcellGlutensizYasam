@@ -26,7 +26,7 @@ public class AdapterChatlist extends RecyclerView.Adapter<AdapterChatlist.MyHold
     private HashMap<String, String> lastMessageMap;
 
     //constructor
-    public AdapterChatlist(Context context, List<ModelUser> userList) {
+    public AdapterChatlist(Context context, List<ModelUser> userList ) {
         this.context = context;
         this.userList = userList;
         lastMessageMap = new HashMap<>();

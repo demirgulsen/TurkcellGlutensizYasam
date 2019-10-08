@@ -83,28 +83,28 @@ public class AdapterChat extends RecyclerView.Adapter<AdapterChat.MyHolder>{
         }catch (Exception e){
 
         }
-//        holder.messageLAyout.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                AlertDialog.Builder builder = new AlertDialog.Builder(context);
-//                builder.setTitle("Sil");
-//                builder.setMessage("Silmek istediğinizden emin misininz");
-//                builder.setPositiveButton("Sil", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        deleteMessage(position);
-//                    }
-//                });
-//                builder.setNegativeButton("Hayır", new DialogInterface.OnClickListener() {
-//                    @Override
-//                    public void onClick(DialogInterface dialog, int which) {
-//                        dialog.dismiss();
-//                    }
-//                });
-//                builder.create().show();
-//
-//            }
-//        });
+        holder.messageLAyout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                builder.setTitle("Sil");
+                builder.setMessage("Silmek istediğinizden emin misininz");
+                builder.setPositiveButton("Sil", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        deleteMessage(position);
+                    }
+                });
+                builder.setNegativeButton("Hayır", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+                builder.create().show();
+
+            }
+        });
 
         //seet seen/delivered status of message
         if (position == chatList.size()-1){
@@ -118,6 +118,7 @@ public class AdapterChat extends RecyclerView.Adapter<AdapterChat.MyHolder>{
         else{
             holder.isSeen.setVisibility(View.GONE);
         }
+
     }
 
     private void deleteMessage(int i) {
@@ -178,7 +179,7 @@ public class AdapterChat extends RecyclerView.Adapter<AdapterChat.MyHolder>{
         //views
         ImageView profilP;
         TextView messageP, timeP, isSeen;
-        //LinearLayout messageLAyout;
+        LinearLayout messageLAyout;
 
 
 
@@ -186,10 +187,10 @@ public class AdapterChat extends RecyclerView.Adapter<AdapterChat.MyHolder>{
             super(itemView);
 
             profilP = itemView.findViewById(R.id.profilP);
-            messageP = itemView.findViewById(R.id.messageP);
+            messageP = itemView.findViewById(R.id.messageEt);
             timeP = itemView.findViewById(R.id.timeP);
             isSeen = itemView.findViewById(R.id.isSeen);
-            //messageLAyout = itemView.findViewById(R.id.messageLayout);
+            messageLAyout = itemView.findViewById(R.id.messageLayout);
         }
     }
 

@@ -25,19 +25,20 @@
             android:name=".ChatActivity"
             android:theme="@style/AppThemeNo"
             tools:ignore="DuplicateActivity" />
-        <activity android:name=".DashboardActivity"/>
-
-
-        <activity android:name=".LoginActivity" />
-
-        <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".DashboardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+
+        <activity android:name=".LoginActivity" />
+
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".MainActivity"/>
 
         <service
             android:name=".notifications.FirebaseService"

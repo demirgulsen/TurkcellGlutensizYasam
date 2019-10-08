@@ -39,7 +39,7 @@ public class DashboardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_dashboard);
 
         actionBar=getSupportActionBar();
-        actionBar.setTitle("Profil");
+        actionBar.setTitle("");
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -49,7 +49,7 @@ public class DashboardActivity extends AppCompatActivity {
 
 
         //home fragment transaction default, on start
-        actionBar.setTitle("Home");
+
         HomeFragment fragment1 = new HomeFragment();
         FragmentTransaction ft1 = getSupportFragmentManager().beginTransaction();
         ft1.replace(R.id.content,fragment1, "");
@@ -84,7 +84,7 @@ public class DashboardActivity extends AppCompatActivity {
                     switch(menuItem.getItemId()){
                         case R.id.nav_home:
                             //home fragment transaction
-                            actionBar.setTitle("Anasayfa");
+                            actionBar.setTitle("");
                             HomeFragment fragment1 = new HomeFragment();
                             FragmentTransaction ft1 = getSupportFragmentManager().beginTransaction();
                             ft1.replace(R.id.content,fragment1, "");
@@ -93,7 +93,7 @@ public class DashboardActivity extends AppCompatActivity {
                         case R.id.nav_profile:
                             //profil fragment transaction
                             //home fragment transaction
-                            actionBar.setTitle("Profil");
+                            actionBar.setTitle("");
                             ProfileFragment fragment2 = new ProfileFragment();
                             FragmentTransaction ft2 = getSupportFragmentManager().beginTransaction();
                             ft2.replace(R.id.content,fragment2, "");
@@ -102,7 +102,7 @@ public class DashboardActivity extends AppCompatActivity {
                         case R.id.nav_add:
                             //post ekleme fragment transaction
                             //home fragment transaction
-                            actionBar.setTitle("Tarif veya Bilgi Ekle");
+                            actionBar.setTitle("");
                             EkleFragment fragment3 = new EkleFragment();
                             FragmentTransaction ft3 = getSupportFragmentManager().beginTransaction();
                             ft3.replace(R.id.content,fragment3, "");
@@ -111,7 +111,7 @@ public class DashboardActivity extends AppCompatActivity {
                         case R.id.nav_users:
                             //usershome fragment transaction
                             //home fragment transaction
-                            actionBar.setTitle("Kullanıcılar");
+                            actionBar.setTitle("");
                             UsersFragment fragment4 = new UsersFragment();
                             FragmentTransaction ft4 = getSupportFragmentManager().beginTransaction();
                             ft4.replace(R.id.content,fragment4, "");
@@ -120,7 +120,7 @@ public class DashboardActivity extends AppCompatActivity {
                         case R.id.nav_chat:
                             //usershome fragment transaction
                             //home fragment transaction
-                            actionBar.setTitle("Mesajlar");
+                            actionBar.setTitle("");
                             ChatListFragment fragment5 = new ChatListFragment();
                             FragmentTransaction ft5 = getSupportFragmentManager().beginTransaction();
                             ft5.replace(R.id.content,fragment5, "");

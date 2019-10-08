@@ -12,28 +12,31 @@
         app:actionViewClass="android.widget.SearchView"/>
 
     <item android:id="@+id/action_add_post"
-        android:title="Ekle"
+        android:title=""
         app:showAsAction="always"
         android:icon="@drawable/ic_add_black"/>
 
     <item android:id="@+id/action_diyetisyen"
-        android:title="Diyetisyen"
+        android:title=""
         app:showAsAction="always"
         android:icon="@drawable/diyetis"/>
 
     <item android:id="@+id/action_saved"
-        android:title="Kaydedilenler"
+        android:title=""
         app:showAsAction="always"
         android:icon="@drawable/ic_saved_black"/>
 
     <item android:id="@+id/action_kafe"
-        android:title="Kaydedilenler"
+        android:title=""
         app:showAsAction="always"
         android:icon="@drawable/ic_cafe"/>
 
-    <item android:id="@+id/action_shop"
-        android:title="Kaydedilenler"
+    <item android:id="@+id/action_alisveris"
+        android:title=""
         app:showAsAction="always"
         android:icon="@drawable/ic_shopping"/>
+
+
+
 
 </menu>

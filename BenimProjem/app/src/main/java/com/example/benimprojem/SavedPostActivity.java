@@ -159,9 +159,6 @@ public class SavedPostActivity extends AppCompatActivity {
     private void checkUserStatus(){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null){
-            myEmail = user.getEmail();
-            myUid = user.getUid();//currently signed in users id
-
 
         }
         else{

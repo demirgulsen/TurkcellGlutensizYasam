@@ -33,7 +33,6 @@ import android.widget.Toast;
 
 import com.example.benimprojem.AddPostActivity;
 import com.example.benimprojem.DiyetisyenActivity;
-import com.example.benimprojem.KafeActivity;
 import com.example.benimprojem.MainActivity;
 import com.example.benimprojem.R;
 import com.example.benimprojem.SavedPostActivity;
@@ -403,13 +402,11 @@ public class EkleFragment extends Fragment {
 
         inflater.inflate(R.menu.menu_main, menu);
         menu.findItem(R.id.action_add_post).setVisible(false);
-        menu.findItem(R.id.action_search).setVisible(false);
-        menu.findItem(R.id.action_saved).setVisible(false);
-
         menu.findItem(R.id.action_diyetisyen).setVisible(false);
-        menu.findItem(R.id.action_saved).setVisible(false);
+        menu.findItem(R.id.action_alisveris).setVisible(false);
         menu.findItem(R.id.action_kafe).setVisible(false);
-        menu.findItem(R.id.action_shop).setVisible(false);
+
+
 
         super.onCreateOptionsMenu(menu, inflater);
 
@@ -423,22 +420,23 @@ public class EkleFragment extends Fragment {
             checkUserStatus();
         }
 
-        if (id ==R.id.action_shop){
-            startActivity(new Intent(getActivity(), ShopActivity.class));
-        }
-        if (id ==R.id.action_kafe){
-            startActivity(new Intent(getActivity(), KafeActivity.class));
-        }
-        if (id ==R.id.action_saved){
-            startActivity(new Intent(getActivity(), SavedPostActivity.class));
-        }
-        if (id ==R.id.action_diyetisyen){
-            startActivity(new Intent(getActivity(), DiyetisyenActivity.class));
-        }
-        if (id ==R.id.action_add_post) {
+        if (id ==R.id.action_add_post){
             startActivity(new Intent(getActivity(), AddPostActivity.class));
         }
 
+        if (id ==R.id.action_saved){
+            startActivity(new Intent(getActivity(), SavedPostActivity.class));
+        }
+
+        if (id ==R.id.action_diyetisyen){
+            startActivity(new Intent(getActivity(), DiyetisyenActivity.class));
+        }
+        if (id ==R.id.action_alisveris){
+            startActivity(new Intent(getActivity(), ShopActivity.class));
+        }
+        if (id ==R.id.action_kafe){
+            startActivity(new Intent(getActivity(), ShopActivity.class));
+        }
         return super.onOptionsItemSelected(item);
     }
 
