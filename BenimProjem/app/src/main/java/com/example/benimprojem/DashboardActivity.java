@@ -10,11 +10,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.example.benimprojem.fragments.AlisVerisFragment;
 import com.example.benimprojem.fragments.ChatListFragment;
 import com.example.benimprojem.fragments.EkleFragment;
 import com.example.benimprojem.fragments.HomeFragment;
-import com.example.benimprojem.fragments.KafeRestorantFragment;
 import com.example.benimprojem.fragments.ProfileFragment;
 import com.example.benimprojem.fragments.UsersFragment;
 import com.example.benimprojem.notifications.Token;

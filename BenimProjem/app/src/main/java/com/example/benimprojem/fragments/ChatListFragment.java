@@ -186,6 +186,10 @@ public class ChatListFragment extends Fragment {
         menu.findItem(R.id.action_saved).setVisible(false);
         //hide addpost icon from this fragment
         menu.findItem(R.id.action_add_post).setVisible(false);
+        menu.findItem(R.id.action_diyetisyen).setVisible(false);
+        menu.findItem(R.id.action_saved).setVisible(false);
+        menu.findItem(R.id.action_kafe).setVisible(false);
+        menu.findItem(R.id.action_shop).setVisible(false);
 
 
         super.onCreateOptionsMenu(menu, inflater);
@@ -198,6 +202,26 @@ public class ChatListFragment extends Fragment {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         if (id ==R.id.action_logout){
+            firebaseAuth.signOut();
+            checkUserStatus();
+        }
+        if (id ==R.id.action_shop){
+            firebaseAuth.signOut();
+            checkUserStatus();
+        }
+        if (id ==R.id.action_kafe){
+            firebaseAuth.signOut();
+            checkUserStatus();
+        }
+        if (id ==R.id.action_saved){
+            firebaseAuth.signOut();
+            checkUserStatus();
+        }
+        if (id ==R.id.action_diyetisyen){
+            firebaseAuth.signOut();
+            checkUserStatus();
+        }
+        if (id ==R.id.action_add_post){
             firebaseAuth.signOut();
             checkUserStatus();
         }

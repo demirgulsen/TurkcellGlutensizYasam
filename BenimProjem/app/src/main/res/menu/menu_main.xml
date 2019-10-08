@@ -26,4 +26,14 @@
         app:showAsAction="always"
         android:icon="@drawable/ic_saved_black"/>
 
+    <item android:id="@+id/action_kafe"
+        android:title="Kaydedilenler"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_cafe"/>
+
+    <item android:id="@+id/action_shop"
+        android:title="Kaydedilenler"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_shopping"/>
+
 </menu>
