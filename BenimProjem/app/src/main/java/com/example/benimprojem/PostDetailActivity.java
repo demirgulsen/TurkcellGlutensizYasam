@@ -537,6 +537,9 @@ public class PostDetailActivity extends AppCompatActivity {
 
         menu.findItem(R.id.action_add_post).setVisible(false);
         menu.findItem(R.id.action_search).setVisible(false);
+        menu.findItem(R.id.action_diyetisyen).setVisible(false);
+        menu.findItem(R.id.action_kafe).setVisible(false);
+        menu.findItem(R.id.action_shop).setVisible(false);
         return super.onCreateOptionsMenu(menu);
     }
 

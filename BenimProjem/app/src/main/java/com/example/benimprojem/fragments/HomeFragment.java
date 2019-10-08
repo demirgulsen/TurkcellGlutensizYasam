@@ -25,9 +25,11 @@ import android.widget.Toast;
 
 import com.example.benimprojem.AddPostActivity;
 import com.example.benimprojem.DiyetisyenActivity;
+import com.example.benimprojem.KafeActivity;
 import com.example.benimprojem.MainActivity;
 import com.example.benimprojem.R;
 import com.example.benimprojem.SavedPostActivity;
+import com.example.benimprojem.ShopActivity;
 import com.example.benimprojem.adapters.AdapterPosts;
 import com.example.benimprojem.models.ModelPost;
 import com.google.firebase.auth.FirebaseAuth;
@@ -185,6 +187,15 @@ public class HomeFragment extends Fragment {
             }
         });
 
+
+        menu.findItem(R.id.action_saved).setVisible(false);
+        //hide addpost icon from this fragment
+        menu.findItem(R.id.action_add_post).setVisible(false);
+        menu.findItem(R.id.action_diyetisyen).setVisible(false);
+        menu.findItem(R.id.action_saved).setVisible(false);
+        menu.findItem(R.id.action_kafe).setVisible(false);
+        menu.findItem(R.id.action_shop).setVisible(false);
+
         super.onCreateOptionsMenu(menu, inflater);
 
     }
@@ -197,21 +208,22 @@ public class HomeFragment extends Fragment {
             checkUserStatus();
         }
 
-        //Post eklemek için AddPostActivity sayfasına yönlendirir. Benim için önemli olan addpostactivity deki kodları fragmente aktarabilmek
-        if (id ==R.id.action_add_post){
-            startActivity(new Intent(getActivity(), AddPostActivity.class));
+        if (id ==R.id.action_shop){
+            startActivity(new Intent(getActivity(), ShopActivity.class));
         }
-
-        if (id ==R.id.action_saved){
-            startActivity(new Intent(getActivity(), SavedPostActivity.class));
+        if (id ==R.id.action_kafe){
+            startActivity(new Intent(getActivity(), KafeActivity.class));
         }
         if (id ==R.id.action_saved){
             startActivity(new Intent(getActivity(), SavedPostActivity.class));
         }
-
         if (id ==R.id.action_diyetisyen){
             startActivity(new Intent(getActivity(), DiyetisyenActivity.class));
         }
+        if (id ==R.id.action_add_post) {
+            startActivity(new Intent(getActivity(), AddPostActivity.class));
+        }
+
 
         return super.onOptionsItemSelected(item);
     }
