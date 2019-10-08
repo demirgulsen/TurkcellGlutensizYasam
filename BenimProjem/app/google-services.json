@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "939948635229-avqnh4qkgro8dn7u0fter1bvqlmo8bi1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.benimprojem",
+            "certificate_hash": "09675df72f57089b3db912498f34ebdb1a3b22c2"
+          }
+        },
+        {
           "client_id": "939948635229-tvn06ac2tvpqhfcijlck4sinub4ed7qr.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
