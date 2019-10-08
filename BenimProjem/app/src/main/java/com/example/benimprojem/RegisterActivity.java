@@ -66,8 +66,7 @@ public class RegisterActivity extends AppCompatActivity {
 
         mAuth =FirebaseAuth.getInstance();
 
-        progressDialog = new ProgressDialog(this);
-        progressDialog.setMessage("Kaydediliyor...");
+
 
 
 //degişen kısım basladı
@@ -111,6 +110,10 @@ public class RegisterActivity extends AppCompatActivity {
     private void signup_Email(String email, String password, String password2) {
 
         if (password.equals(password2)){
+            progressDialog = new ProgressDialog(this);
+            progressDialog.setMessage("Kaydediliyor...");
+
+
             mAuth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                         @Override
